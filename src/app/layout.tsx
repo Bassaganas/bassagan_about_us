@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Roboto_Mono } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,29 +8,29 @@ const inter = Inter({
   display: "swap",
 });
 
-const robotoMono = Roboto_Mono({
-  variable: "--font-roboto-mono",
+const poppins = Poppins({
+  weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
-  title: "Paula Bassagañas Òdena | IT Architect",
-  description: "IT Architect specialized in test automation and pharmaceutical field",
-  keywords: ["Paula Bassagañas", "IT Architect", "Test Automation", "Pharmaceutical"],
+  title: "Paula Bassagañas | IT Architect",
+  description: "Personal portfolio of Paula Bassagañas, IT Architect specialized in test automation and pharmaceutical technology.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body
-        className={`${inter.variable} ${robotoMono.variable} antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100`}
-      >
-        {children}
+    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
+      <body className="bg-gray-50 text-gray-900 font-sans antialiased">
+        <div className="min-h-screen flex flex-col">
+          {children}
+        </div>
       </body>
     </html>
   );
