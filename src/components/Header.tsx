@@ -48,9 +48,8 @@ export default function Header() {
                     {/* Desktop Navigation */}
                     <nav className="hidden md:flex items-center space-x-1">
                         <NavLink href="#about">About</NavLink>
-                        <NavLink href="#experience">Experience</NavLink>
-                        <NavLink href="#events">Events</NavLink>
-                        <NavLink href="#conferences">Talks</NavLink>
+                        <NavLink href="#professional-journey">Experience</NavLink>
+                        <NavLink href="#events">Talks & Events</NavLink>
                         <NavLink href="#gallery">Gallery</NavLink>
                         <NavLink href="#contact" isButton>Contact</NavLink>
                     </nav>
@@ -75,9 +74,8 @@ export default function Header() {
                     <div className="md:hidden mt-4 py-4 bg-white rounded-lg shadow-lg">
                         <div className="flex flex-col space-y-2">
                             <MobileNavLink href="#about" onClick={() => setIsMobileMenuOpen(false)}>About</MobileNavLink>
-                            <MobileNavLink href="#experience" onClick={() => setIsMobileMenuOpen(false)}>Experience</MobileNavLink>
-                            <MobileNavLink href="#events" onClick={() => setIsMobileMenuOpen(false)}>Events</MobileNavLink>
-                            <MobileNavLink href="#conferences" onClick={() => setIsMobileMenuOpen(false)}>Talks</MobileNavLink>
+                            <MobileNavLink href="#professional-journey" onClick={() => setIsMobileMenuOpen(false)}>Experience</MobileNavLink>
+                            <MobileNavLink href="#events" onClick={() => setIsMobileMenuOpen(false)}>Talks & Events</MobileNavLink>
                             <MobileNavLink href="#gallery" onClick={() => setIsMobileMenuOpen(false)}>Gallery</MobileNavLink>
                             <MobileNavLink href="#contact" isButton onClick={() => setIsMobileMenuOpen(false)}>Contact</MobileNavLink>
                         </div>

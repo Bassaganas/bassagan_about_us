@@ -21,68 +21,102 @@ export type TestimonialItem = {
 
 export const upcomingEventsData: EventItem[] = [
     {
-        date: "June 15-16, 2024",
-        title: "Test Automation Summit 2024",
-        location: "Berlin, Germany",
-        description: "Presenting a workshop on 'Advanced Test Automation Patterns in Regulated Environments'",
-        link: "https://example.com/event1"
+        date: "June 03-06, 2025",
+        title: "EuroSTAR",
+        location: "Edinburgh, UK",
+        description: "Testus Patronus: No Magic, just AI with your company context.",
+        link: "https://conference.eurostarsoftwaretesting.com/"
     },
     {
-        date: "September 5-7, 2024",
-        title: "PharmaTech Conference",
-        location: "Barcelona, Spain",
-        description: "Panel speaker on 'Quality Assurance in Pharmaceutical Software Development'",
-        link: "https://example.com/event2"
+        date: "November 10-11, 2025",
+        title: "AutomationSTAR",
+        location: "Amsterdam",
+        description: "Testus Patronus: No Magic, just AI with your company context",
+        link: "https://automation.eurostarsoftwaretesting.com/"
     },
     {
-        date: "November 12, 2024",
-        title: "Women in Tech Meetup",
-        location: "Frankfurt, Germany",
-        description: "Lightning talk on career progression in IT architecture",
-        link: "https://example.com/event3"
+        date: "TBD, 2025",
+        title: "BCN PyDay",
+        location: "Barcelona",
+        description: "Testus Patronus: No Magic, just AI with your company context",
+        link: "https://pybcn.org/events/pyday_bcn/pyday_bcn_2024/#content_section"
     }
 ];
 
 export const photosData: PhotoItem[] = [
     {
-        src: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
-        alt: "Speaking at a tech conference",
-        caption: "Presenting at the Quality Assurance Summit 2023"
+        src: "/images/automationstar_2024_big.jpg",
+        alt: "Speaking at AutomationSTAR 2024",
+        caption: "Sharing insights at AutomationSTAR 2024"
     },
     {
-        src: "https://images.unsplash.com/photo-1565728744382-61accd4aa148",
-        alt: "Leading a workshop",
-        caption: "Workshop on Test Architecture at company headquarters"
+        src: "/images/Paula_Bassaganas_Odena.png",
+        alt: "Paula Bassagañas Odena",
+        caption: "Speaking and sharing knowledge at tech events"
     },
     {
-        src: "https://images.unsplash.com/photo-1553877522-43269d4ea984",
-        alt: "Team collaboration",
-        caption: "Working with the development team on a critical project"
+        src: "/images/cobas_infinity_1.png",
+        alt: "Cobas Infinity System",
+        caption: "Working on Laboratory Information Systems at Roche"
     },
     {
-        src: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4",
-        alt: "Speaking event",
-        caption: "Keynote speech at industry event"
+        src: "/images/cobas_liat.png",
+        alt: "Cobas Liat System",
+        caption: "Test Analysis and Validation at Roche Diagnostics"
+    },
+    {
+        src: "/images/lidl_pay.png",
+        alt: "Lidl Pay System",
+        caption: "Backend Development for LidlPlus Payment System"
+    },
+    {
+        src: "/images/bcn_pydays_2024.png",
+        alt: "BCN PyDays 2024",
+        caption: "Speaking at Barcelona Python Community Events"
     }
 ];
 
 export const testimonialsData: TestimonialItem[] = [
     {
-        quote: "Paula's expertise in test architecture transformed our approach to quality assurance. Her strategic vision helped us implement robust automated testing that cut our release cycles in half.",
-        author: "Maria Rodriguez",
-        role: "CTO",
-        company: "PharmaTech Solutions"
+        quote: "Paula is a passioned and motivated person who is actively collaborating with me in the IVD GPS Domain Community at Roche Diagnostics. She is open-minded and has a deep knowledge in Biomedical Engineering. Besides being a pleasure to work with, Paula is a take-charge person who is able to present creative ideas and communicate effectively to other community participants. Her ability in making inspiring and teaching presentations is just outstanding. It is a joy to work with you.",
+        author: "Josep Martinez Gomar",
+        role: "IVD GPS Domain Community Member",
+        company: "Roche Diagnostics"
     },
     {
-        quote: "Working with Paula was a game-changer for our team. Her deep knowledge of both pharmaceutical regulations and modern testing approaches helped us navigate complex compliance requirements without sacrificing agility.",
-        author: "Thomas Weber",
-        role: "Head of Development",
-        company: "MedSoft GmbH"
+        quote: "Thank you for your Tutroial Yesterday, it was awesome",
+        author: "Marcus Daratha",
+        role: "Test Engineer",
+        company: "PROGNOST"
     },
     {
-        quote: "Paula's workshops on test automation transformed how our QA team approaches testing. Her ability to explain complex concepts in accessible ways made the training incredibly effective.",
-        author: "Sara Johnson",
-        role: "QA Manager",
-        company: "HealthTech International"
+        quote: "She tries to make different classes, tries to challenge us, makes sure that we understand what is explained. Also is always ready to help us.",
+        author: "Anonymous student",
+        role: "Introduction to Programming",
+        company: "Pompeu Fabra University Student"
+    },
+    {
+        quote: "very comfortable teacher to student relation",
+        author: "Anonymous student",
+        role: "Introduction to Programming",
+        company: "Pompeu Fabra University Student"
+    },
+    {
+        quote: "És atenta amb els alumnes, qualsevol dubte ho explica.",
+        author: "Anonymous student",
+        role: "Object Oriented Programming",
+        company: "Pompeu Fabra University Student"
+    },
+    {
+        quote: "Paula is very bright and capable, always having creative ideas, and never hesitating to share them. She has great communication skills and motivation to use them at every chance she has. I would be delighted to have the opportunity to work with her again.",
+        author: "Cristian Torras",
+        role: "Senior Software Architect",
+        company: "Roche Diagnostics"
+    },
+    {
+        quote: "És atenta amb els alumnes, qualsevol dubte ho explica.",
+        author: "Anonymous student",
+        role: "Object Oriented Programming",
+        company: "Pompeu Fabra University Student"
     }
 ]; 

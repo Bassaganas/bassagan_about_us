@@ -81,11 +81,10 @@ export default function Hero() {
 
                             {/* Image container */}
                             <div className="relative h-64 w-64 md:h-80 md:w-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
-                                <Image
-                                    src="/images/Paula_Bassaganas_Odena.JPG"
+                                <img
+                                    src="/images/Paula_Bassaganas_Odena.png"
                                     alt="Paula Bassagañas"
                                     fill
-                                    style={{ objectFit: 'cover' }}
                                     priority
                                     className="rounded-full"
                                 />

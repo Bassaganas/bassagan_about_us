@@ -5,6 +5,7 @@ interface Event {
     title: string;
     location: string;
     description: string;
+    link?: string;
 }
 
 interface UpcomingEventsProps {
@@ -22,7 +23,7 @@ export default function UpcomingEvents({ events }: UpcomingEventsProps) {
                     <h2 className="text-3xl font-bold text-gray-900 mb-2">Upcoming Events</h2>
                     <div className="w-24 h-1 bg-coral-500 mx-auto mb-4"></div>
                     <p className="text-gray-700 max-w-2xl mx-auto">
-                        Join me at these upcoming professional engagements where I'll be sharing insights on test automation and IT architecture
+                        Join me at these upcoming professional events where I'll be sharing insights on test automation and IT architecture
                     </p>
                 </div>
 
@@ -60,12 +61,23 @@ export default function UpcomingEvents({ events }: UpcomingEventsProps) {
 
                             {/* Card footer */}
                             <div className="px-6 py-3 bg-gray-50 border-t border-gray-100 mt-auto">
-                                <a href="#" className="text-coral-600 hover:text-coral-700 text-sm font-medium inline-flex items-center transition-colors duration-300">
-                                    Learn more
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                                    </svg>
-                                </a>
+                                {event.link ? (
+                                    <a
+                                        href={event.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-coral-600 hover:text-coral-700 text-sm font-medium inline-flex items-center transition-colors duration-300"
+                                    >
+                                        Learn more
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                                        </svg>
+                                    </a>
+                                ) : (
+                                    <span className="text-gray-400 text-sm font-medium">
+                                        Coming soon
+                                    </span>
+                                )}
                             </div>
                         </div>
                     ))}

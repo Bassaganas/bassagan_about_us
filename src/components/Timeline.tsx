@@ -3,189 +3,201 @@
 import React from 'react';
 import Image from 'next/image';
 import type { TimelineItem } from '@/data/timeline-data';
+import { FaQuoteLeft, FaBriefcase, FaMicrophone, FaLaptopCode } from 'react-icons/fa';
 
 interface TimelineProps {
-    data: TimelineItem[];
-    title: string;
-    id: string;
+    items: TimelineItem[];
 }
 
-interface TimelineItemProps {
-    item: TimelineItem;
-    index: number;
-}
+export default function Timeline({ items }: TimelineProps) {
+    // Function to determine image container class based on image path
+    const getImageContainerClass = (photoPath: string) => {
+        if (photoPath.includes('lidl_pay')) {
+            return 'mt-4 relative w-full aspect-[3/1] rounded-lg overflow-hidden';
+        }
+        if (photoPath.includes('cobas_infinity')) {
+            return 'mt-4 relative w-full aspect-[2/1] rounded-lg overflow-hidden';
+        }
+        if (photoPath.includes('boehringer_ingelheim')) {
+            return 'mt-4 relative w-full aspect-[3/1] rounded-lg overflow-hidden flex items-center justify-center';
+        }
+        if (photoPath.includes('upf_logo')) {
+            return 'mt-4 relative w-2/3 aspect-[5/1] rounded-lg overflow-hidden flex items-center justify-center mx-auto';
+        }
+        return 'mt-4 relative w-full aspect-[16/9] rounded-lg overflow-hidden';
+    };
 
-const TimelineItem: React.FC<TimelineItemProps> = ({ item, index }) => {
+    // Function to determine image object fit based on image path
+    const getImageObjectFit = (photoPath: string) => {
+        if (photoPath.includes('lidl_pay') || photoPath.includes('cobas_infinity') ||
+            photoPath.includes('boehringer_ingelheim') || photoPath.includes('upf_logo')) {
+            return 'object-contain bg-white';
+        }
+        return 'object-cover';
+    };
+
+    // Function to determine image padding based on image path
+    const getImagePadding = (photoPath: string) => {
+        if (photoPath.includes('cobas_infinity')) {
+            return 'p-4';
+        }
+        if (photoPath.includes('boehringer_ingelheim')) {
+            return 'p-4';
+        }
+        if (photoPath.includes('upf_logo')) {
+            return 'p-4';
+        }
+        return '';
+    };
+
+    // Function to determine image max height
+    const getImageMaxHeight = (photoPath: string) => {
+        if (photoPath.includes('boehringer_ingelheim')) {
+            return 'max-h-[180px]';
+        }
+        if (photoPath.includes('upf_logo')) {
+            return 'max-h-[45px]';
+        }
+        return '';
+    };
+
     return (
-        <div className="mb-20 flex flex-col md:flex-row">
-            <div className="flex flex-col items-center mr-6">
-                <div>
-                    <div className="flex items-center justify-center w-14 h-14 rounded-full border-coral-500 border-3 bg-white shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-coral-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                </div>
-                <div className="w-1.5 h-full bg-gradient-to-b from-coral-500 to-orange-500 rounded-full"></div>
-            </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Timeline line */}
+            <div className="absolute left-[22px] sm:left-[26px] top-4 bottom-0 w-1.5 bg-gradient-to-b from-coral-500 to-orange-500 rounded-full"></div>
 
-            <div className="flex flex-col lg:flex-row gap-6 w-full">
-                {/* Main content with photo */}
-                <div className="rounded-xl bg-white shadow-lg p-0 w-full lg:w-3/5 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden border border-gray-100">
-                    {item.photo && (
-                        <div className="relative w-full h-48 overflow-hidden">
-                            <Image
-                                src={item.photo}
-                                alt={item.title}
-                                fill
-                                className="object-cover"
-                                sizes="(max-width: 768px) 100vw, 60vw"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                            <span className="absolute bottom-4 left-6 font-semibold text-white px-4 py-1.5 rounded-full 
-                                bg-gradient-to-r from-coral-600 to-orange-500 shadow-md">
-                                {item.date}
-                            </span>
+            {/* Timeline items */}
+            <div className="space-y-16">
+                {items?.map((item, index) => (
+                    <div key={index} className="relative pl-16 sm:pl-20">
+                        {/* Timeline dot */}
+                        <div className={`absolute left-0 top-4 w-12 h-12 rounded-full border-4 ${item.type === 'experience'
+                            ? 'border-coral-600 bg-coral-50 hover:bg-coral-100'
+                            : 'border-purple-500 bg-purple-50 hover:bg-purple-100'
+                            } flex items-center justify-center -translate-x-[22px] shadow-lg hover:scale-110 transition-all duration-200`}>
+                            {item.type === 'experience' ? (
+                                <FaLaptopCode className="text-coral-600 text-2xl" />
+                            ) : (
+                                <FaMicrophone className="text-purple-600 text-2xl" />
+                            )}
                         </div>
-                    )}
 
-                    <div className="p-6">
-                        {!item.photo && (
-                            <div className="flex justify-between items-center mb-2">
-                                <span className="font-semibold text-white px-4 py-1.5 bg-coral-600 rounded-full">{item.date}</span>
-                            </div>
-                        )}
-                        <h3 className="text-xl font-bold text-gray-800 mb-2 flex items-center">
-                            {item.title}
-                            <span className="ml-2 inline-block w-2.5 h-2.5 rounded-full bg-coral-500"></span>
-                        </h3>
-                        <p className="text-gray-700 mb-5 leading-relaxed">{item.description}</p>
-
-                        {item.tags && item.tags.length > 0 && (
-                            <div className="mt-4">
-                                <div className="flex flex-wrap gap-2">
-                                    {item.tags.map((tag: string, idx: number) => (
-                                        <span
-                                            key={idx}
-                                            className="text-xs bg-gradient-to-r from-orange-100 to-coral-100 text-gray-800 px-3 py-1.5 rounded-full border border-coral-200"
-                                        >
-                                            {tag}
-                                        </span>
-                                    ))}
+                        <div className="flex flex-col lg:flex-row lg:gap-12">
+                            {/* Main Content */}
+                            <div className={`flex-1 rounded-lg shadow-lg p-6 lg:p-8 hover:shadow-xl transition-shadow duration-300 ${item.type === 'experience'
+                                ? 'bg-white border border-coral-100'
+                                : 'bg-gradient-to-br from-purple-50 to-white border border-purple-100'
+                                }`}>
+                                {/* Date pill */}
+                                <div className={`inline-block ${item.type === 'experience'
+                                    ? 'bg-gradient-to-r from-coral-600 to-coral-500'
+                                    : 'bg-gradient-to-r from-purple-600 to-purple-500'
+                                    } text-white px-4 py-1 rounded-full text-sm font-medium mb-4 shadow-sm`}>
+                                    {item.date}
                                 </div>
-                            </div>
-                        )}
 
-                        {item.link && (
-                            <div className="mt-5">
-                                <a
-                                    href={item.link.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center text-sm font-medium text-coral-700 hover:text-coral-800 transition-colors"
-                                >
-                                    {item.link.label}
-                                    <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                    </svg>
-                                </a>
-                            </div>
-                        )}
-                    </div>
-                </div>
+                                {/* Title */}
+                                <h3 className={`text-xl font-bold mb-2 ${item.type === 'experience'
+                                    ? 'text-coral-900'
+                                    : 'text-purple-900'
+                                    }`}>
+                                    {item.title}
+                                </h3>
 
-                {/* Testimonial as speech bubble */}
-                {item.testimonial && (
-                    <div className="lg:mt-6 w-full lg:w-2/5 relative">
-                        <div className="bg-gradient-to-br from-orange-50 to-coral-50 p-5 rounded-xl shadow-lg relative speech-bubble border-t border-l border-white/50">
-                            <svg
-                                className="absolute top-4 left-4 w-7 h-7 text-coral-500 opacity-70"
-                                fill="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.999v10h-9.999z" />
-                            </svg>
-                            <div className="ml-7">
-                                <blockquote className="italic text-gray-700 text-sm md:text-base">"<span className="text-coral-600 font-medium not-italic">❝</span> {item.testimonial.quote} <span className="text-coral-600 font-medium not-italic">❞</span>"</blockquote>
-                                <div className="mt-4 flex items-center">
-                                    <div className="flex-shrink-0">
-                                        <div className="w-12 h-12 bg-gradient-to-r from-coral-500 to-orange-500 rounded-full flex items-center justify-center shadow-md">
-                                            <span className="text-white font-semibold text-base">{item.testimonial.author.charAt(0)}</span>
+                                {/* Description */}
+                                <p className="text-gray-600 mb-4">
+                                    {item.description}
+                                </p>
+
+                                {/* Link for talks/conferences */}
+                                {item.type === 'speaking' && item.link && (
+                                    <div className="mb-4">
+                                        <a
+                                            href={item.link.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center text-purple-600 hover:text-purple-700 font-medium"
+                                        >
+                                            {item.link.label}
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                )}
+
+                                {/* Tags */}
+                                {item.tags && (
+                                    <div className="flex flex-wrap gap-2 mb-4">
+                                        {item.tags.map((tag, tagIndex) => (
+                                            <span
+                                                key={tagIndex}
+                                                className={`${item.type === 'experience'
+                                                    ? 'bg-coral-50 text-coral-700 border border-coral-200'
+                                                    : 'bg-purple-50 text-purple-700 border border-purple-200'
+                                                    } px-3 py-1 rounded-full text-sm`}
+                                            >
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                )}
+
+                                {/* Photo */}
+                                {item.photo && (
+                                    <div className={`${getImageContainerClass(item.photo)} ${getImageMaxHeight(item.photo)}`}>
+                                        <Image
+                                            src={item.photo}
+                                            alt={item.title}
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                            className={`${getImageObjectFit(item.photo)} hover:scale-105 transition-transform duration-300 ${getImagePadding(item.photo)}`}
+                                            priority={index < 2}
+                                        />
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Testimonial Bubble */}
+                            {item.testimonial && (
+                                <div className="w-full lg:w-96 mt-6 lg:mt-0 relative">
+                                    <div className={`absolute -left-4 top-6 w-4 h-4 ${item.type === 'experience'
+                                        ? 'bg-gradient-to-r from-coral-50 to-white'
+                                        : 'bg-gradient-to-r from-purple-50 to-white'
+                                        } transform rotate-45 hidden lg:block`}></div>
+                                    <div className={`${item.type === 'experience'
+                                        ? 'bg-gradient-to-r from-coral-50 to-white border border-coral-100'
+                                        : 'bg-gradient-to-r from-purple-50 to-white border border-purple-100'
+                                        } p-6 lg:p-8 rounded-lg shadow-md`}>
+                                        <FaQuoteLeft className={`${item.type === 'experience'
+                                            ? 'text-coral-500'
+                                            : 'text-purple-500'
+                                            } text-xl mb-2`} />
+                                        <p className="text-gray-700 italic mb-2">
+                                            "{item.testimonial.quote}"
+                                        </p>
+                                        <div className="text-sm text-gray-600">
+                                            <span className="font-semibold">{item.testimonial.author}</span>
+                                            {item.testimonial.role && (
+                                                <span className={`${item.type === 'experience'
+                                                    ? 'text-coral-600'
+                                                    : 'text-purple-600'
+                                                    }`}> • {item.testimonial.role}</span>
+                                            )}
+                                            {item.testimonial.company && (
+                                                <span className={`${item.type === 'experience'
+                                                    ? 'text-coral-600'
+                                                    : 'text-purple-600'
+                                                    }`}> • {item.testimonial.company}</span>
+                                            )}
                                         </div>
                                     </div>
-                                    <div className="ml-3">
-                                        <p className="text-sm font-medium text-gray-800">{item.testimonial.author}</p>
-                                        <p className="text-xs text-coral-700">
-                                            {item.testimonial.role}
-                                            {item.testimonial.company && `, ${item.testimonial.company}`}
-                                        </p>
-                                    </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        {/* Arrow pointing to the experience */}
-                        <div className="absolute left-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden lg:block">
-                            <div className="w-5 h-5 bg-orange-50 transform rotate-45 shadow-md"></div>
+                            )}
                         </div>
                     </div>
-                )}
+                ))}
             </div>
         </div>
-    );
-};
-
-export default function Timeline({ data, title, id }: TimelineProps) {
-    return (
-        <section id={id} className="py-16 bg-gradient-to-b from-white via-gray-50 to-white relative">
-            <style jsx global>{`
-                .speech-bubble::before {
-                    content: '';
-                    position: absolute;
-                    top: 50%;
-                    left: -10px;
-                    transform: translateY(-50%);
-                    width: 0;
-                    height: 0;
-                    border-top: 10px solid transparent;
-                    border-bottom: 10px solid transparent;
-                    border-right: 10px solid #fff7ed; /* Orange-50 equivalent */
-                }
-                
-                /* Add Tailwind custom colors for coral */
-                :root {
-                    --color-coral-50: #fff1ec;
-                    --color-coral-100: #ffe4dc;
-                    --color-coral-200: #ffc9b9;
-                    --color-coral-300: #ffa9a0;
-                    --color-coral-400: #ff8a74;
-                    --color-coral-500: #ff6b4f;
-                    --color-coral-600: #ed4e39;
-                    --color-coral-700: #d43a27;
-                    --color-coral-800: #b22e22;
-                    --color-coral-900: #9a2920;
-                }
-            `}</style>
-
-            {/* Decorative elements for more visual interest */}
-            <div className="absolute top-0 right-0 w-64 h-64 opacity-5">
-                <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="#FF6B4F" d="M44.3,-76.1C58.4,-70.2,71.3,-59.9,79.8,-46.3C88.3,-32.6,92.3,-16.3,89.8,-1.5C87.3,13.4,78.2,26.8,69.2,40.2C60.1,53.5,51,66.9,38.4,74.4C25.8,82,12.9,83.7,-0.2,84C-13.4,84.3,-26.7,83.3,-38.4,77.2C-50.1,71.1,-60.1,60,-68.2,47C-76.3,34,-82.5,17,-83.1,0C-83.7,-17,-78.8,-34,-69.5,-46.9C-60.2,-59.8,-46.6,-68.6,-33,-73.4C-19.4,-78.2,-5.8,-79.1,7.1,-79.9C20,-80.7,30.3,-82,44.3,-76.1Z" transform="translate(100 100)" />
-                </svg>
-            </div>
-
-            <div className="container mx-auto px-4">
-                <h2 className="text-3xl font-bold text-center mb-4">
-                    <span className="text-gray-800">Professional</span>
-                    <span className="text-coral-600 ml-2">Experience</span>
-                </h2>
-                <div className="w-32 h-2 bg-gradient-to-r from-coral-500 to-orange-500 mx-auto mb-16 rounded-full"></div>
-                <div className="relative">
-                    {data.map((item, index) => (
-                        <TimelineItem key={index} item={item} index={index} />
-                    ))}
-                </div>
-            </div>
-        </section>
     );
 } 
