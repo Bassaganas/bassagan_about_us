@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -81,20 +83,21 @@ export default function Hero() {
 
                             {/* Image container */}
                             <div className="relative h-64 w-64 md:h-80 md:w-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
-                                <img
+                                <Image
                                     src="/images/Paula_Bassaganas_Odena.png"
                                     alt="Paula Bassagañas"
-                                    fill
+                                    width={320}
+                                    height={320}
                                     priority
-                                    className="rounded-full"
+                                    className="rounded-full object-cover"
                                 />
                             </div>
 
-                            {/* Available tag */}
+                            {/* Status tag */}
                             <div className="absolute -bottom-3 right-0 bg-white rounded-full py-2 px-4 shadow-md border border-gray-100">
                                 <div className="flex items-center gap-2">
                                     <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-                                    <span className="text-sm font-medium text-gray-800">Available for projects</span>
+                                    <span className="text-sm font-medium text-gray-800">Open to connect</span>
                                 </div>
                             </div>
                         </div>

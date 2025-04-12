@@ -25,7 +25,11 @@ export const timelineData: TimelineItem[] = [
         description: "Speaking at EuroSTAR 2025 conference",
         type: 'speaking',
         tags: ["Conference", "Speaking", "Testing"],
-        photo: "/images/eurostar_2025.png"
+        photo: "/images/eurostar_2025.png",
+        link: {
+            url: "https://conference.eurostarsoftwaretesting.com/",
+            label: "View Conference Details"
+        }
     },
     {
         date: "November 2025",
@@ -33,7 +37,11 @@ export const timelineData: TimelineItem[] = [
         description: "Speaking at AutomationSTAR 2025 conference",
         type: 'speaking',
         tags: ["Conference", "Speaking", "Automation"],
-        photo: "/images/automation-star-2025.jpg"
+        photo: "/images/automation-star-2025.jpg",
+        link: {
+            url: "https://automation.eurostarsoftwaretesting.com/",
+            label: "View Conference Details"
+        }
     },
     // Current experience
     {
@@ -53,11 +61,15 @@ export const timelineData: TimelineItem[] = [
     // Past speaking engagements
     {
         date: "October 2024",
-        title: "AutomationSTAR 2025",
-        description: "Speaking at AutomationSTAR 2025 conference",
+        title: "AutomationSTAR 2024",
+        description: "Speaking at AutomationSTAR 2024 conference",
         type: 'speaking',
         tags: ["Conference", "Speaking", "Automation"],
-        photo: "/images/automationstar_2024.png"
+        photo: "/images/automationstar_2024.png",
+        link: {
+            url: "https://github.com/Bassaganas/etl-testing-fwk",
+            label: "View Conference Material"
+        }
     },
     {
         date: "November 2024",
@@ -65,7 +77,11 @@ export const timelineData: TimelineItem[] = [
         description: "Speaking at BCN PyDay 2024 conference",
         type: 'speaking',
         tags: ["Conference", "Speaking", "Automation"],
-        photo: "/images/bcn_pydays_2024.png"
+        photo: "/images/bcn_pydays_2024.png",
+        link: {
+            url: "https://github.com/Bassaganas/etl-testing-fwk/tree/feature/pydays",
+            label: "View Conference Material"
+        }
     },
     // Past experience
     {

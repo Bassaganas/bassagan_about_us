@@ -10,6 +10,10 @@ export type PhotoItem = {
     src: string;
     alt: string;
     caption: string;
+    link?: {
+        url: string;
+        label: string;
+    };
 };
 
 export type TestimonialItem = {
@@ -45,35 +49,58 @@ export const upcomingEventsData: EventItem[] = [
 
 export const photosData: PhotoItem[] = [
     {
-        src: "/images/automationstar_2024_big.jpg",
-        alt: "Speaking at AutomationSTAR 2024",
-        caption: "Sharing insights at AutomationSTAR 2024"
-    },
+        src: "images/eurostar_2025.png",
+        alt: "EuroSTAR 2025 panel",
+        caption: "EuroSTAR 2025 panel"
+    }
+    ,
     {
-        src: "/images/Paula_Bassaganas_Odena.png",
-        alt: "Paula Bassagañas Odena",
-        caption: "Speaking and sharing knowledge at tech events"
-    },
-    {
-        src: "/images/cobas_infinity_1.png",
-        alt: "Cobas Infinity System",
-        caption: "Working on Laboratory Information Systems at Roche"
-    },
-    {
-        src: "/images/cobas_liat.png",
-        alt: "Cobas Liat System",
-        caption: "Test Analysis and Validation at Roche Diagnostics"
-    },
-    {
-        src: "/images/lidl_pay.png",
-        alt: "Lidl Pay System",
-        caption: "Backend Development for LidlPlus Payment System"
-    },
+        src: "images/upf_quadrat.png",
+        alt: "Teaching at UPF",
+        caption: "Teaching at UPF"
+    }
+    ,
     {
         src: "/images/bcn_pydays_2024.png",
         alt: "BCN PyDays 2024",
-        caption: "Speaking at Barcelona Python Community Events"
+        caption: "BCN PyDays 2024 - Barcelona",
+        link: {
+            url: "https://pybcn.org/events/pyday_bcn/pyday_bcn_2024/#content_section",
+            label: "View Conference Materials"
+        }
+    },
+    {
+
+        src: "/images/automationstar_2024_big.jpg",
+        alt: "AutomationSTAR 2024 Conference",
+        caption: "AutomationSTAR 2024 - Amsterdam",
+        link: {
+            url: "https://automation.eurostarsoftwaretesting.com/",
+            label: "View Conference Details"
+        }
+    },
+    {
+        src: "/images/IMG_1067.jpg",
+        alt: "AI Hackathon at Boehringer Ingelheim",
+        caption: "Designing a AI solutions for Testing "
+    },
+    {
+        src: "/images/IMG_20170419_113705.jpg",
+        alt: "Installing Cobas Infinity in Huelva",
+        caption: "Installing Cobas Infinity in Huelva"
+    },
+    {
+        src: "images/cobas_liat.png",
+        alt: "Cobas Liat: a PCR at point of care",
+        caption: "Cobas Liat: Testing a PCR at point of care"
     }
+    ,
+    {
+        src: "images/Paula_Bassaganas_Odena.png",
+        alt: "Paula Bassagañas Òdena",
+        caption: "Paula Bassagañas Òdena"
+    }
+
 ];
 
 export const testimonialsData: TestimonialItem[] = [
