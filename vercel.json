@@ -1,0 +1,26 @@
+{
+    "version": 2,
+    "github": {
+        "enabled": true,
+        "silent": false,
+        "autoAlias": true
+    },
+    "builds": [
+        {
+            "src": "package.json",
+            "use": "@vercel/next"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/$1"
+        }
+    ],
+    "env": {
+        "NEXT_PUBLIC_EMAILJS_SERVICE_ID": "@next_public_emailjs_service_id",
+        "NEXT_PUBLIC_EMAILJS_TEMPLATE_ID": "@next_public_emailjs_template_id",
+        "NEXT_PUBLIC_EMAILJS_PUBLIC_KEY": "@next_public_emailjs_public_key",
+        "EMAILJS_PRIVATE_KEY": "@emailjs_private_key"
+    }
+}
