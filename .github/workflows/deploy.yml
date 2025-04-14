@@ -63,4 +63,5 @@ jobs:
             vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
           else
             echo "Deploying to preview environment..."
-            vercel --token=${{ secrets.VERCEL_TOKEN }} 
+            vercel --token=${{ secrets.VERCEL_TOKEN }}
+          fi 
