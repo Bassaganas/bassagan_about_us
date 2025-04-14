@@ -21,6 +21,5 @@
         "NEXT_PUBLIC_EMAILJS_SERVICE_ID": "@next_public_emailjs_service_id",
         "NEXT_PUBLIC_EMAILJS_TEMPLATE_ID": "@next_public_emailjs_template_id",
         "NEXT_PUBLIC_EMAILJS_PUBLIC_KEY": "@next_public_emailjs_public_key",
-        "EMAILJS_PRIVATE_KEY": "@emailjs_private_key"
     }
 }
