@@ -55,7 +55,7 @@ export default function Hero() {
                                     </svg>
                                 </div>
                             </Link>
-                            <Link href="#experience">
+                            <Link href="#professional-journey">
                                 <div className="px-6 py-3 bg-white hover:bg-orange-50 text-gray-800 font-medium rounded border border-gray-200 shadow-sm hover:border-coral-200 transition duration-300 flex items-center">
                                     <span>My Experience</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 text-coral-500" viewBox="0 0 20 20" fill="currentColor">
