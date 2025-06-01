@@ -11,8 +11,8 @@ export async function POST(request: Request) {
 
         // Email to you (the website owner)
         const emailToOwner = {
-            to: 'contact@paulabassaganas.com', // Your email address
-            from: 'contact@paulabassaganas.com', // Your verified SendGrid sender
+            to: 'paula.bassaganas@gmail.com', // Your email address
+            from: 'paula.bassaganas@gmail.com', // Your verified SendGrid sender
             subject: `New Contact Form Submission from ${name}`,
             html: `
                 <h3>New Contact Form Submission</h3>
@@ -26,7 +26,7 @@ export async function POST(request: Request) {
         // Confirmation email to the sender
         const confirmationEmail = {
             to: email,
-            from: 'contact@paulabassaganas.com', // Your verified SendGrid sender
+            from: 'paula.bassaganas@gmail.com', // Your verified SendGrid sender
             subject: 'Thank you for contacting Paula Bassagañas',
             html: `
                 <h3>Thank you for reaching out!</h3>
