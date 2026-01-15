@@ -1,15 +1,47 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import type { TimelineItem } from '@/data/timeline-data';
-import { FaQuoteLeft, FaBriefcase, FaMicrophone, FaLaptopCode } from 'react-icons/fa';
+import { FaQuoteLeft, FaBriefcase, FaMicrophone, FaLaptopCode, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 interface TimelineProps {
     items: TimelineItem[];
 }
 
 export default function Timeline({ items }: TimelineProps) {
+    // State to track current photo index for each item
+    const [currentPhotoIndices, setCurrentPhotoIndices] = useState<{ [key: number]: number }>({});
+
+    // Function to get current photo index for an item
+    const getCurrentPhotoIndex = (itemIndex: number, totalPhotos: number) => {
+        return currentPhotoIndices[itemIndex] ?? 0;
+    };
+
+    // Function to go to next photo
+    const goToNextPhoto = (itemIndex: number, totalPhotos: number) => {
+        setCurrentPhotoIndices(prev => ({
+            ...prev,
+            [itemIndex]: ((prev[itemIndex] ?? 0) + 1) % totalPhotos
+        }));
+    };
+
+    // Function to go to previous photo
+    const goToPrevPhoto = (itemIndex: number, totalPhotos: number) => {
+        setCurrentPhotoIndices(prev => ({
+            ...prev,
+            [itemIndex]: ((prev[itemIndex] ?? 0) - 1 + totalPhotos) % totalPhotos
+        }));
+    };
+
+    // Function to go to specific photo
+    const goToPhoto = (itemIndex: number, photoIndex: number) => {
+        setCurrentPhotoIndices(prev => ({
+            ...prev,
+            [itemIndex]: photoIndex
+        }));
+    };
+
     // Function to determine image container class based on image path
     const getImageContainerClass = (photoPath: string) => {
         if (photoPath.includes('lidl_pay')) {
@@ -143,8 +175,114 @@ export default function Timeline({ items }: TimelineProps) {
                                     </div>
                                 )}
 
-                                {/* Photo */}
-                                {item.photo && (
+                                {/* Conference Feedback */}
+                                {item.type === 'speaking' && item.feedback && (
+                                    <div className="mb-4 p-4 bg-gradient-to-r from-purple-50 to-white border border-purple-200 rounded-lg">
+                                        {item.feedback.award && (
+                                            <div className="mb-3">
+                                                <div className="flex items-center gap-2 mb-2">
+                                                    <span className="inline-flex items-center px-3 py-1 bg-purple-600 text-white rounded-full text-sm font-semibold">
+                                                        ⭐ {item.feedback.award.averageRating.toFixed(2)} / {item.feedback.award.maxRating || 5}
+                                                        {item.feedback.award.rank && ` (${item.feedback.award.rank})`}
+                                                    </span>
+                                                    <span className="text-sm text-purple-700 font-medium">
+                                                        {item.feedback.award.category}
+                                                    </span>
+                                                </div>
+                                                <p className="text-xs text-gray-600">
+                                                    {item.feedback.award.respondents} respondents
+                                                </p>
+                                            </div>
+                                        )}
+                                        {item.feedback.quote && (
+                                            <div className="border-l-4 border-purple-500 pl-3">
+                                                <p className="text-sm text-gray-700 italic">
+                                                    "{item.feedback.quote}"
+                                                </p>
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+
+                                {/* Photos */}
+                                {item.photos && item.photos.length > 0 ? (
+                                    <div className="mt-4 relative">
+                                        {/* Carousel Container */}
+                                        <div className={`${getImageContainerClass(item.photos[0])} ${getImageMaxHeight(item.photos[0])}`}>
+                                            {item.photos.map((photo, photoIndex) => {
+                                                const currentIndex = getCurrentPhotoIndex(index, item.photos!.length);
+                                                return (
+                                                    <div
+                                                        key={photoIndex}
+                                                        className={`absolute inset-0 transition-opacity duration-500 ${
+                                                            photoIndex === currentIndex ? 'opacity-100' : 'opacity-0'
+                                                        }`}
+                                                    >
+                                                        <Image
+                                                            src={photo}
+                                                            alt={`${item.title} - Photo ${photoIndex + 1}`}
+                                                            fill
+                                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                                            className={`${getImageObjectFit(photo)} ${getImagePadding(photo)}`}
+                                                            priority={index < 2 && photoIndex === 0}
+                                                        />
+                                                    </div>
+                                                );
+                                            })}
+                                            
+                                            {/* Navigation Buttons */}
+                                            {item.photos.length > 1 && (
+                                                <>
+                                                    <button
+                                                        onClick={() => goToPrevPhoto(index, item.photos!.length)}
+                                                        className={`absolute left-2 top-1/2 -translate-y-1/2 ${item.type === 'experience'
+                                                            ? 'bg-coral-600 hover:bg-coral-700'
+                                                            : 'bg-purple-600 hover:bg-purple-700'
+                                                            } text-white p-2 rounded-full shadow-lg transition-all duration-200 hover:scale-110 z-10`}
+                                                        aria-label="Previous photo"
+                                                    >
+                                                        <FaChevronLeft className="w-4 h-4" />
+                                                    </button>
+                                                    <button
+                                                        onClick={() => goToNextPhoto(index, item.photos!.length)}
+                                                        className={`absolute right-2 top-1/2 -translate-y-1/2 ${item.type === 'experience'
+                                                            ? 'bg-coral-600 hover:bg-coral-700'
+                                                            : 'bg-purple-600 hover:bg-purple-700'
+                                                            } text-white p-2 rounded-full shadow-lg transition-all duration-200 hover:scale-110 z-10`}
+                                                        aria-label="Next photo"
+                                                    >
+                                                        <FaChevronRight className="w-4 h-4" />
+                                                    </button>
+                                                </>
+                                            )}
+                                        </div>
+                                        
+                                        {/* Indicator Dots */}
+                                        {item.photos.length > 1 && (
+                                            <div className="flex justify-center gap-2 mt-4">
+                                                {item.photos.map((_, photoIndex) => {
+                                                    const currentIndex = getCurrentPhotoIndex(index, item.photos!.length);
+                                                    return (
+                                                        <button
+                                                            key={photoIndex}
+                                                            onClick={() => goToPhoto(index, photoIndex)}
+                                                            className={`transition-all duration-200 rounded-full ${
+                                                                photoIndex === currentIndex
+                                                                    ? item.type === 'experience'
+                                                                        ? 'bg-coral-600 w-8'
+                                                                        : 'bg-purple-600 w-8'
+                                                                    : item.type === 'experience'
+                                                                        ? 'bg-coral-200 w-2 hover:bg-coral-400'
+                                                                        : 'bg-purple-200 w-2 hover:bg-purple-400'
+                                                            } h-2`}
+                                                            aria-label={`Go to photo ${photoIndex + 1}`}
+                                                        />
+                                                    );
+                                                })}
+                                            </div>
+                                        )}
+                                    </div>
+                                ) : item.photo && (
                                     <div className={`${getImageContainerClass(item.photo)} ${getImageMaxHeight(item.photo)}`}>
                                         <Image
                                             src={item.photo}

@@ -14,7 +14,19 @@ export type TimelineItem = {
         role: string;
         company?: string;
     };
-    photo?: string;
+    photo?: string; // Single photo (for backward compatibility)
+    photos?: string[]; // Multiple photos (takes precedence over photo if both are present)
+    feedback?: {
+        award?: {
+            category: string;
+            title: string;
+            averageRating: number;
+            respondents: number;
+            rank?: string; // e.g., "2nd"
+            maxRating?: number; // Maximum rating scale (default: 5)
+        };
+        quote?: string; // A standout quote from the feedback
+    };
 };
 
 export const timelineData: TimelineItem[] = [
@@ -27,8 +39,19 @@ export const timelineData: TimelineItem[] = [
         tags: ["Conference", "Speaking", "Testing"],
         photo: "/images/eurostar_2025.png",
         link: {
-            url: "https://conference.eurostarsoftwaretesting.com/",
+            url: "https://conference.eurostarsoftwaretesting.com/event/2025/testus-patronus-no-magic-just-ai-with-your-company-context/",
             label: "View Conference Details"
+        },
+        feedback: {
+            award: {
+                category: "Tutorial",
+                title: "Tutorial G - Testus Patronus: No Magic, Just AI with Your Company Context",
+                averageRating: 9.00,
+                respondents: 36,
+                rank: "2nd",
+                maxRating: 10
+            },
+            quote: "It was a pleasure to learn how to create a RAG. Paula did an excellent job with preparation, set and actual presentation. Fantastic documentation and step by step support was provided for everyone. It was an intensive and enlightening experience!"
         }
     },
     {
@@ -37,9 +60,37 @@ export const timelineData: TimelineItem[] = [
         description: "Speaking at AutomationSTAR 2025 conference",
         type: 'speaking',
         tags: ["Conference", "Speaking", "Automation"],
-        photo: "/images/automation-star-2025.jpg",
+        photos: [
+            "/images/automationstar_2025.jpg",
+            "/images/automationstar_2025_1.jpeg",
+            "/images/automationstar_2025_2.jpeg"
+        ],
         link: {
-            url: "https://automation.eurostarsoftwaretesting.com/",
+            url: "https://automation.eurostarsoftwaretesting.com/event/2025/testus-patronus-no-magic-just-ai-with-your-company-context/",
+            label: "View Conference Details"
+        },
+        feedback: {
+            award: {
+                category: "Best Tutorial Award",
+                title: "Tut D - Testus Patronus: No Magic, Just AI with Your Company Context",
+                averageRating: 4.70,
+                respondents: 33
+            },
+            quote: "Best tutorial ever! I had knowledge on the topic and didn't feel like it would be too interesting to attend yet another lecture on the matter, but I was completely wrong. I'm so happy I attended this talk."
+        }
+    },
+    {
+        date: "November 2025",
+        title: "Agile Testing Days 2025",
+        description: "Speaking at Agile Testing Days 2025 conference",
+        type: 'speaking',
+        tags: ["Conference", "Speaking", "Automation"],
+        photos: [
+            "/images/atd_2025.jpg",
+            "/images/atd_2025_122.jpeg"
+        ],
+        link: {
+            url: "https://agiletestingdays.com/2025/session/prompt-forward-hands-on-with-generative-ai-for-testers/",
             label: "View Conference Details"
         }
     },
@@ -69,6 +120,16 @@ export const timelineData: TimelineItem[] = [
         link: {
             url: "https://github.com/Bassaganas/etl-testing-fwk",
             label: "View Conference Material"
+        },
+        feedback: {
+            award: {
+                category: "Tutorial",
+                title: "ETL Testing Framework",
+                averageRating: 4.71,
+                respondents: 15,
+                maxRating: 5
+            },
+            quote: "Amazing tutorial! Really great explanations and the hands-on was so well prepared and useful"
         }
     },
     {

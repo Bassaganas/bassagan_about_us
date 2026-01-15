@@ -25,21 +25,22 @@ export type TestimonialItem = {
 
 export const upcomingEventsData: EventItem[] = [
     {
-        date: "June 03-06, 2025",
-        title: "EuroSTAR",
-        location: "Edinburgh, UK",
-        description: "Testus Patronus: No Magic, just AI with your company context.",
-        link: "https://conference.eurostarsoftwaretesting.com/"
-    },
-    {
-        date: "November 10-11, 2025",
-        title: "AutomationSTAR",
-        location: "Amsterdam",
+        date: "May 11-13, 2026",
+        title: "WeTest Athenes",
+        location: "Athens, Greece",
         description: "Testus Patronus: No Magic, just AI with your company context",
-        link: "https://automation.eurostarsoftwaretesting.com/"
+        link: "https://www.wetest-athens.gr/"
     },
     {
-        date: "TBD, 2025",
+        date: "June 14-18, 2026",
+        title: "EuroSTAR",
+        location: "Oslo, Norway",
+        description: "One Agent to Watch Them All: Building an AI Test Monitor",
+        link: "https://conference.eurostarsoftwaretesting.com/event/2026/one-agent-to-watch-them-all-building-an-ai-test-monitor/"
+    },
+
+    {
+        date: "TBD, 2026",
         title: "BCN PyDay",
         location: "Barcelona",
         description: "Testus Patronus: No Magic, just AI with your company context",
@@ -48,18 +49,43 @@ export const upcomingEventsData: EventItem[] = [
 ];
 
 export const photosData: PhotoItem[] = [
+    // Reorganized to show variety in each set of 8 photos
+    // Set 1: Mix of conferences, professional, work, and equipment
     {
-        src: "images/eurostar_2025.png",
-        alt: "EuroSTAR 2025 panel",
-        caption: "EuroSTAR 2025 panel"
-    }
-    ,
+        src: "/images/eurostar_2025.png",
+        alt: "EuroSTAR 2025",
+        caption: "EuroSTAR 2025"
+    },
     {
-        src: "images/upf_quadrat.png",
+        src: "/images/Paula_Bassaganas_Odena.png",
+        alt: "Paula Bassagañas Òdena",
+        caption: "Paula Bassagañas Òdena"
+    },
+    {
+        src: "/images/IMG_1067.jpg",
+        alt: "AI Hackathon at Boehringer Ingelheim",
+        caption: "Designing AI solutions for Testing"
+    },
+    {
+        src: "/images/cobas_liat.png",
+        alt: "Cobas Liat: a PCR at point of care",
+        caption: "Cobas Liat: Testing a PCR at point of care"
+    },
+    {
+        src: "/images/automationstar_2025.jpg",
+        alt: "AutomationSTAR 2025",
+        caption: "AutomationSTAR 2025"
+    },
+    {
+        src: "/images/IMG_20170419_113705.jpg",
+        alt: "Installing Cobas Infinity in Huelva",
+        caption: "Installing Cobas Infinity in Huelva"
+    },
+    {
+        src: "/images/upf_quadrat.png",
         alt: "Teaching at UPF",
         caption: "Teaching at UPF"
-    }
-    ,
+    },
     {
         src: "/images/bcn_pydays_2024.png",
         alt: "BCN PyDays 2024",
@@ -69,8 +95,8 @@ export const photosData: PhotoItem[] = [
             label: "View Conference Materials"
         }
     },
+    // Set 2: Mix of conferences, work, equipment, and professional
     {
-
         src: "/images/automationstar_2024_big.jpg",
         alt: "AutomationSTAR 2024 Conference",
         caption: "AutomationSTAR 2024 - Amsterdam",
@@ -80,27 +106,81 @@ export const photosData: PhotoItem[] = [
         }
     },
     {
-        src: "/images/IMG_1067.jpg",
-        alt: "AI Hackathon at Boehringer Ingelheim",
-        caption: "Designing a AI solutions for Testing "
+        src: "/images/IMG_1083.jpg",
+        alt: "Work at Boehringer Ingelheim",
+        caption: "Work at Boehringer Ingelheim"
     },
     {
-        src: "/images/IMG_20170419_113705.jpg",
-        alt: "Installing Cobas Infinity in Huelva",
-        caption: "Installing Cobas Infinity in Huelva"
+        src: "/images/boehringer_ingelheim.png",
+        alt: "Boehringer Ingelheim",
+        caption: "Boehringer Ingelheim"
     },
     {
-        src: "images/cobas_liat.png",
-        alt: "Cobas Liat: a PCR at point of care",
-        caption: "Cobas Liat: Testing a PCR at point of care"
-    }
-    ,
+        src: "/images/atd_2025.JPG",
+        alt: "Agile Testing Days 2025",
+        caption: "Agile Testing Days 2025"
+    },
     {
-        src: "images/Paula_Bassaganas_Odena.png",
+        src: "/images/20181220_191858.jpg",
+        alt: "Work at Roche",
+        caption: "Work at Roche"
+    },
+    {
+        src: "/images/cobas_infinity.png",
+        alt: "Cobas Infinity",
+        caption: "Cobas Infinity"
+    },
+    {
+        src: "/images/automationstar_2025_1.jpeg",
+        alt: "AutomationSTAR 2025",
+        caption: "AutomationSTAR 2025"
+    },
+    {
+        src: "/images/Paula_Bassaganas_Odena_old.JPG",
         alt: "Paula Bassagañas Òdena",
         caption: "Paula Bassagañas Òdena"
+    },
+    // Set 3: Remaining photos
+    {
+        src: "/images/automationstar_2025_2.jpeg",
+        alt: "AutomationSTAR 2025",
+        caption: "AutomationSTAR 2025"
+    },
+    {
+        src: "/images/IMG-20161021-WA0005.jpeg",
+        alt: "Work at Roche",
+        caption: "Work at Roche"
+    },
+    {
+        src: "/images/upf.png",
+        alt: "Universitat Pompeu Fabra",
+        caption: "Universitat Pompeu Fabra"
+    },
+    {
+        src: "/images/atd_2025_122.jpeg",
+        alt: "Agile Testing Days 2025",
+        caption: "Agile Testing Days 2025"
+    },
+    {
+        src: "/images/cobas_infinity_1.png",
+        alt: "Cobas Infinity",
+        caption: "Cobas Infinity"
+    },
+    {
+        src: "/images/automationstar_2024.png",
+        alt: "AutomationSTAR 2024",
+        caption: "AutomationSTAR 2024"
+    },
+    {
+        src: "/images/cobas_711_511.png",
+        alt: "Cobas 711/511",
+        caption: "Cobas 711/511"
+    },
+    {
+        src: "/images/lidl_pay.png",
+        alt: "Lidl Pay",
+        caption: "Lidl Pay"
     }
-
 ];
 
 export const testimonialsData: TestimonialItem[] = [
