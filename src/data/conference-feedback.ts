@@ -9,6 +9,7 @@ export type ConferenceFeedback = {
         title: string;
         averageRating: number;
         respondents: number;
+        maxRating?: number; // EuroSTAR scores out of 10, AutomationSTAR out of 5
     };
 };
 
@@ -100,7 +101,8 @@ Siobhán`
             category: "Tutorial",
             title: "Tutorial G - Testus Patronus: No Magic, Just AI with Your Company Context",
             averageRating: 9.00,
-            respondents: 36
+            respondents: 36,
+            maxRating: 10
         },
         outstandingQuotes: [
             "It was a pleasure to learn how to create a RAG. Paula did an excellent job with preparation, set and actual presentation. Fantastic documentation and step by step support was provided for everyone. It was an intensive and enlightening experience!",
@@ -310,6 +312,80 @@ I enjoyed your tutorial so much. I appreciate the simple and clear way you expla
 Well presented, loved the Harry Potter theme and the practical part worked perfectly
 
 It was a creative and educational session. Pretty awesome to spin up 100 environments and have it actually work. Lots of fun and knowledgeable`
+    },
+    {
+        conference: "EuroSTAR",
+        year: 2026,
+        date: "June 2026",
+        award: {
+            category: "Tutorial",
+            title: "Tut A - One Agent to Watch Them All: Building an AI Test Monitor",
+            averageRating: 8.24,
+            respondents: 41,
+            maxRating: 10
+        },
+        outstandingQuotes: [
+            "Best tutorial this year! Great opening energy, and you adapted to the room perfectly. I'm definitely leveraging your Sauron Tower analogy to explain AI.",
+            "I love the Lord of the Rings theme, it made the topic memorable. All the materials were also so well organized and easy to follow, considering the complexity of the subject.",
+            "Paula gave us a lot of useful and structured information. A real take away workshop",
+            "Really good tutorial, very nicely handled and taking the audience along with you for the ride.",
+            "Awesome teaching skills and a really enjoyable tutorial",
+            "Excellent description and breakdown of the concept. Really well put across.",
+            "Really liked the use of Lord of the Rings to set the scene. It's better than just diving into code and diagrams.",
+            "Interesting POC idea, very nice that we can use the code ourselves as well. Good speaker.",
+            "Best Session ever",
+            "Loved the session"
+        ],
+        rawFeedback: `Hi Paula,
+
+Thank you for contributing to the success of EuroSTAR Conference 2026.
+
+We categorize sessions by the following standards:
+9.00 and 10.00 - Outstanding
+8.00 and 8.99 - Excellent
+7.00 and 7.99 - Good
+6.00 and 6.99 - Average
+Under 6.00 - Below Expected Minimum Standard
+
+Best Scored Tutorial: Tut D - Context Engineering for Testers - Rahul Parwal
+
+Tut A - One Agent to Watch Them All: Building an AI Test Monitor
+Your Score - 8.24 - Excellent
+Respondents: 41
+
+Comparisons:
+Top Tutorial Score: 9.26
+Average Tutorial Score Rating: 8.36
+
+Feedback Comments:
+
+Awesome teaching skills and a really enjoyable tutorial
+Really good tutorial - very nicely handled and taking the audience along with you for the ride.
+"Paula gave us a lot of useful and structured information. A real take away workshop"
+Useful and well facilitated session
+Very nice insights
+Very interesting and great presentation. The issue for me was that the tutorial would need way more time to get behind all of the exercises. Maybe a smaller tutorial tailored to only having 3 hours time frame would be better next time. Thanks a lot :)
+Good example software to see it working. Being able to look deep into the workings was interesting. It went too fast to actually do the exercises myself.
+Maybe longer explanations can be made about the topic, and the exercise and simpler executions can be used in order to reach full understanding about the topic
+It was too much info and too little time to work hands on. Cool concept!
+Excellent description and breakdown of the concept. Really well put across, I would just ask for some more on hands coding exercises and problems to solve. I know time limited though.
+Interesting POC idea, very nice that we can use the code ourselves as well. Good speaker. Tough to combine a workshop with a speech. Well done.
+"I liked the setup and theory part. It was very noticeable that it was a shortened down tutorial. With the limited amount of time, it was not enough time to investigate the code by ourselves, and it took too long time setting up the environment, only to be able to run the Jenkins pipeline twice. When this session is shortened this much, I would suggest doing it as a process were we go through it together, or be able to do the setup before the session"
+The materials were not scoped for the time we had. We spent so much time on setting up the environment for everybody, just to copy-paste couple of source code line without reading them, that it would be better to only show it.
+"I love the lord of the ring theme - it made the topic memorable. All the materials were also so well organized and easy to follow (considering the complexity of the subject). My only feedback would be to make a version that would fit in 3hours."
+Good topic
+Loved the session
+"Really liked the use of Lord if the Rings to set the scene. It's better than just diving into code and diagrams. Even though I was the one guy who'd never seen it"
+Nice
+First half of the session was great; however, the 2nd half felt a bit rushed
+Great Prep but too much technical depth for the short amount of time
+Was great and very informative
+The idea behind the session was good, but the time was not correctly set up, thus we didn't have enough time to do all that was planned.
+Very informative, but while trying to keep up with the exercises, it was difficult to follow.
+A bit chaotic since what was originally a 7-8-hour session was condensed to 4 hours. Intro and theme and topic were interesting, but practical walk through suffered
+"Best tutorial this year! Great opening energy, and you adapted to the room perfectly. I'm definitely leveraging your Sauron Tower analogy to explain AI. Constructive roasting: Blocking your slides makes photos harder than destroying the One Ring. The last 30 minutes had a severe "Owl Problem" - squeeze too much info in, you squeeze the audience out. Next time, trim the fat or demand a full-day slot. Thank you!"
+Best Session ever
+
+Recurring theme across the comments: the material was built for a full day and condensed into a short slot.`
     }
 ];
-
