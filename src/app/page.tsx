@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from '@/components/Header';
-import { TildeWatermark } from '@/components/Brand';
 import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
 import Timeline from '@/components/Timeline';
@@ -26,7 +25,7 @@ export default function Home() {
         <UpcomingEvents events={upcomingEventsData} />
 
         <section id="professional-journey" className="section snap-section relative overflow-hidden bg-white">
-          <TildeWatermark className="right-[5%] top-16 hidden h-64 w-64 rotate-[12deg] scale-x-[-1] text-coral-600/[0.07] lg:block xl:h-72 xl:w-72" />
+          <div className="tilde-bg pointer-events-none absolute inset-0" aria-hidden="true" />
           <div className="shell relative z-10">
             <div className="max-w-2xl">
               <p className="eyebrow">Journey</p>

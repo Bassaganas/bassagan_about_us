@@ -24,7 +24,7 @@ export default function Hero({ stats }: HeroProps) {
         >
             {/* Soft brand wash + engineering dot grid, faded out so the section
                 blends into the one below instead of ending on a hard line. */}
-            <div className="dot-bg fade-bottom pointer-events-none absolute inset-0 opacity-60" aria-hidden="true" />
+            <div className="tilde-bg fade-bottom pointer-events-none absolute inset-0" aria-hidden="true" />
             <div
                 className="pointer-events-none absolute -right-32 -top-24 h-[28rem] w-[28rem] rounded-full bg-gradient-to-br from-coral-100 via-orange-50 to-transparent blur-3xl"
                 aria-hidden="true"

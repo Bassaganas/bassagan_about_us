@@ -101,7 +101,9 @@ The logo kit and its written rules live in `brand/` at the repo root, deliberate
 - **Never put the coral icon on a coral ground** — use the cream (reverse) mark, as the Testing Fantasy panel does.
 - The lockup is rebuilt in JSX in `Brand.tsx` rather than loaded from the SVG files, because those set live Poppins text that falls back to Helvetica inside an `<img>`.
 - Favicons are the only brand files under `public/`, at the root, wired up in `layout.tsx`.
-- **The tilde watermark** (`TildeWatermark` in `Brand.tsx`) is placed by hand, never tiled: at most one per section, always in dead space beside or below the content, never behind text, and hidden at widths where that space disappears. Vary size, rotation and mirroring so it reads as composed rather than repeated. Content beside one needs `relative z-10`, and the section needs `relative overflow-hidden`.
+- **The tilde pattern** (`.tilde-bg` for light grounds, `.tilde-bg-light` for ink) is the page texture: one SVG tile holding four marks at different sizes, angles and mirrorings, repeating at 360px so the eye reads scatter rather than a grid. Apply it as a `pointer-events-none absolute inset-0` overlay inside a `relative` section, with the content on `relative z-10`. Keep the opacity inside the SVG; it must stay faint enough not to touch legibility.
+- **Don't combine the pattern with a large single mark** on the same surface. The guild panel keeps its accent mark and skips the tile for that reason.
+- **The single watermark** (`TildeWatermark` in `Brand.tsx`) is placed by hand, never tiled: at most one per section, always in dead space beside or below the content, never behind text, and hidden at widths where that space disappears. Vary size, rotation and mirroring so it reads as composed rather than repeated. Content beside one needs `relative z-10`, and the section needs `relative overflow-hidden`.
 
 ### Images must be optimised by hand
 

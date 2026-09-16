@@ -119,6 +119,23 @@
     background-size: 22px 22px;
   }
 
+  /*
+   * The tilde as a repeating texture. The tile holds four marks at different
+   * sizes, angles and mirrorings, so at a 360px repeat the eye reads scatter
+   * rather than a grid. Keep the opacity in the SVG itself: it must stay faint
+   * enough that text over it is unaffected.
+   */
+  .tilde-bg {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='360' viewBox='0 0 360 360'%3E%3Cg fill='none' stroke='%231A1613' stroke-opacity='0.055' stroke-width='12' stroke-linecap='round'%3E%3Cg transform='translate(6 18) scale(0.85)'%3E%3Cpath d='M21 59 C29 40 44 40 50 50 C56 60 71 60 79 41'/%3E%3C/g%3E%3Cg transform='translate(196 96) scale(0.62) rotate(18 50 50)'%3E%3Cpath d='M21 59 C29 40 44 40 50 50 C56 60 71 60 79 41'/%3E%3C/g%3E%3Cg transform='translate(72 206) scale(1.05) rotate(-9 50 50)'%3E%3Cpath d='M21 59 C29 40 44 40 50 50 C56 60 71 60 79 41'/%3E%3C/g%3E%3Cg transform='translate(250 250) scale(0.75) rotate(12 50 50) scale(-1 1) translate(-100 0)'%3E%3Cpath d='M21 59 C29 40 44 40 50 50 C56 60 71 60 79 41'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-size: 360px 360px;
+  }
+
+  /* Same tile in cream, for ink and coral grounds. */
+  .tilde-bg-light {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='360' viewBox='0 0 360 360'%3E%3Cg fill='none' stroke='%23FFFDFB' stroke-opacity='0.07' stroke-width='12' stroke-linecap='round'%3E%3Cg transform='translate(6 18) scale(0.85)'%3E%3Cpath d='M21 59 C29 40 44 40 50 50 C56 60 71 60 79 41'/%3E%3C/g%3E%3Cg transform='translate(196 96) scale(0.62) rotate(18 50 50)'%3E%3Cpath d='M21 59 C29 40 44 40 50 50 C56 60 71 60 79 41'/%3E%3C/g%3E%3Cg transform='translate(72 206) scale(1.05) rotate(-9 50 50)'%3E%3Cpath d='M21 59 C29 40 44 40 50 50 C56 60 71 60 79 41'/%3E%3C/g%3E%3Cg transform='translate(250 250) scale(0.75) rotate(12 50 50) scale(-1 1) translate(-100 0)'%3E%3Cpath d='M21 59 C29 40 44 40 50 50 C56 60 71 60 79 41'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-size: 360px 360px;
+  }
+
   /* Lets a background texture end softly instead of on a hard horizontal line. */
   .fade-bottom {
     -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 92%);
