@@ -28,8 +28,9 @@ export default function TestingFantasy() {
         <section id="testing-fantasy" className="section snap-section bg-ink-50">
             <div className="shell">
                 <div className="relative overflow-hidden rounded-3xl bg-coral-600 px-5 py-12 shadow-lift sm:px-10 sm:py-14 lg:px-14 lg:py-16">
+                    <div className="tilde-tile pointer-events-none absolute inset-0" aria-hidden="true" />
                     <TildeBare
-                        className="pointer-events-none absolute -right-12 -top-14 h-72 w-72 rotate-[-10deg] text-cream/10 sm:h-80 sm:w-80 lg:h-96 lg:w-96"
+                        className="pointer-events-none absolute -right-12 -top-14 h-52 w-52 rotate-[-10deg] text-cream/10 sm:h-80 sm:w-80 lg:h-96 lg:w-96"
                     />
                     <div
                         className="pointer-events-none absolute -bottom-24 -left-20 h-72 w-72 rounded-full bg-orange-400/20 blur-3xl"

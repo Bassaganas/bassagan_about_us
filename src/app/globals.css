@@ -119,6 +119,18 @@
     background-size: 22px 22px;
   }
 
+  /*
+   * Sparse tilde tile for the brand-coloured panels only. Two very large marks
+   * on a 640px repeat at 3.5% cream: faint enough to sit under text without
+   * touching it, and far weaker than the single accent mark on top, so the
+   * accent still reads as the deliberate graphic. Never use it on a light
+   * content section; that was tried page-wide and was far too busy.
+   */
+  .tilde-tile {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='640' viewBox='0 0 640 640'%3E%3Cg fill='none' stroke='%23FFFDFB' stroke-opacity='0.035' stroke-width='10' stroke-linecap='round'%3E%3Cg transform='translate(-20 30) scale(2.1) rotate(-8 50 50)'%3E%3Cpath d='M21 59 C29 40 44 40 50 50 C56 60 71 60 79 41'/%3E%3C/g%3E%3Cg transform='translate(330 360) scale(1.7) rotate(14 50 50) scale(-1 1) translate(-100 0)'%3E%3Cpath d='M21 59 C29 40 44 40 50 50 C56 60 71 60 79 41'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-size: 640px 640px;
+  }
+
   /* Lets a background texture end softly instead of on a hard horizontal line. */
   .fade-bottom {
     -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 92%);
