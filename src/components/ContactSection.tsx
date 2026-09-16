@@ -51,7 +51,6 @@ export default function ContactSection() {
 
     return (
         <section id="contact" className="section snap-section relative overflow-hidden bg-white">
-            <div className="tilde-bg pointer-events-none absolute inset-0" aria-hidden="true" />
             <div className="shell relative z-10">
                 <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
                     <div>

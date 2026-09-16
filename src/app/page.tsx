@@ -25,7 +25,6 @@ export default function Home() {
         <UpcomingEvents events={upcomingEventsData} />
 
         <section id="professional-journey" className="section snap-section relative overflow-hidden bg-white">
-          <div className="tilde-bg pointer-events-none absolute inset-0" aria-hidden="true" />
           <div className="shell relative z-10">
             <div className="max-w-2xl">
               <p className="eyebrow">Journey</p>

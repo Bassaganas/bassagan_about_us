@@ -20,7 +20,6 @@ export default function UpcomingEvents({ events }: UpcomingEventsProps) {
             id="events"
             className="section snap-section relative overflow-hidden bg-gradient-to-b from-ink-50 via-ink-50 to-white"
         >
-            <div className="tilde-bg pointer-events-none absolute inset-0" aria-hidden="true" />
 
             <div className="shell relative z-10">
                 <div className="max-w-2xl">

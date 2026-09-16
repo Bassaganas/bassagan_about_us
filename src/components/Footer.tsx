@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Lockup } from '@/components/Brand';
+import { Lockup, TildeWatermark } from '@/components/Brand';
 import { FaLinkedinIn, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const QUICK_LINKS = [
@@ -17,7 +17,7 @@ export default function Footer() {
 
     return (
         <footer className="relative overflow-hidden border-t border-ink-800 bg-ink-950">
-            <div className="tilde-bg-light pointer-events-none absolute inset-0" aria-hidden="true" />
+            <TildeWatermark className="-bottom-16 right-[2%] h-80 w-80 rotate-[-6deg] text-cream/[0.06] lg:h-96 lg:w-96" />
             <div className="shell relative z-10 py-12 sm:py-16">
                 <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr]">
                     <div>
