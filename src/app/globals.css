@@ -5,12 +5,16 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
+    /* Keeps a snapped section clear of the fixed header. */
+    scroll-padding-top: 5.5rem;
+    scroll-snap-type: y proximity;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    @apply bg-white text-gray-800;
+    @apply bg-white text-ink-800;
     font-feature-settings: "cv02", "cv03", "cv04";
+    overflow-x: hidden;
   }
 
   h1,
@@ -19,26 +23,118 @@
   h4,
   h5,
   h6 {
-    @apply font-display;
+    @apply font-display text-ink-950;
+    text-wrap: balance;
+  }
+
+  /* Long conference names and URLs must never push the layout sideways. */
+  h1,
+  h2,
+  h3 {
+    overflow-wrap: break-word;
+  }
+
+  ::selection {
+    @apply bg-coral-500/20 text-ink-950;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-coral-500 ring-offset-2 ring-offset-white rounded-sm;
   }
 }
 
 @layer components {
-  .btn {
-    @apply inline-flex items-center px-4 py-2 rounded-md font-medium text-sm focus:outline-none transition-colors duration-300;
+  /* One horizontal rhythm for every section of the page. */
+  .shell {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
   }
 
-  .btn-primary {
-    @apply bg-coral-600 hover:bg-coral-700 text-white shadow-sm;
+  .section {
+    @apply py-16 sm:py-20 lg:py-24;
   }
 
-  .btn-secondary {
-    @apply bg-white hover:bg-gray-50 text-gray-800 border border-gray-300 hover:border-coral-300;
+  /*
+   * Each section behaves like its own page: it fills the viewport so the next
+   * one never peeks in, and scrolling settles on section boundaries. Snapping
+   * is "proximity", not "mandatory", so a section taller than the screen (the
+   * journey, the feedback wall) still scrolls freely inside itself.
+   */
+  .snap-section {
+    scroll-snap-align: start;
+    @apply flex min-h-screen flex-col justify-center;
+  }
+
+  /* Small uppercase mono label that introduces a section. */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-mono text-[11px] sm:text-xs font-medium uppercase tracking-[0.18em] text-coral-700;
+  }
+
+  .eyebrow::before {
+    content: "";
+    @apply h-px w-6 bg-coral-500;
+  }
+
+  .section-title {
+    @apply mt-4 font-display text-3xl sm:text-4xl font-bold tracking-tight text-ink-950;
+  }
+
+  .section-lead {
+    @apply mt-3 max-w-2xl text-base sm:text-lg leading-relaxed text-ink-500;
   }
 
   .card {
-    @apply bg-white border border-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300;
+    @apply rounded-2xl border border-ink-100 bg-white shadow-card transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:-translate-y-0.5 hover:border-coral-200 hover:shadow-lift;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-md border px-2.5 py-1 font-mono text-[11px] leading-none tracking-tight;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-coral-600 text-white shadow-card hover:bg-coral-700 hover:shadow-lift;
+  }
+
+  .btn-secondary {
+    @apply border border-ink-200 bg-white text-ink-800 hover:border-coral-300 hover:text-coral-700;
+  }
+
+  /* Faint engineering grid used behind dark sections. */
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .dot-bg {
+    background-image: radial-gradient(rgba(11, 15, 26, 0.09) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  /* Lets a background texture end softly instead of on a hard horizontal line. */
+  .fade-bottom {
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 92%);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 92%);
   }
 }
 
-/* Custom color variables can be defined here if needed */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

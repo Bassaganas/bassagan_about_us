@@ -6,18 +6,38 @@ module.exports = {
     theme: {
         extend: {
             colors: {
+                // Brand accent, from public/brand/README.txt: the mark, the ñ and links
+                // are coral-600 (#C2371F); coral-400 (#FF6B4A) is the light variant
+                // for ink grounds only.
                 coral: {
                     50: '#fff5f2',
-                    100: '#ffe6e2',
-                    200: '#ffd1c8',
-                    300: '#ffb3a5',
-                    400: '#ff8a73',
-                    500: '#ff6347',
-                    600: '#f04f38',
-                    700: '#d83a28',
-                    800: '#b02e22',
-                    900: '#91281e',
+                    100: '#ffe4dc',
+                    200: '#ffc8b9',
+                    300: '#ffa48c',
+                    400: '#ff6b4a',
+                    500: '#e04a2b',
+                    600: '#c2371f',
+                    700: '#9e2c18',
+                    800: '#7c2313',
+                    900: '#651d10',
                 },
+                // Warm neutral. Body text, dark grounds and borders. ink-950 is the
+                // brand ink (#1A1613) and ink-500 the brand label grey (#6F655E).
+                ink: {
+                    50: '#faf8f7',
+                    100: '#f0edeb',
+                    200: '#e0dad6',
+                    300: '#c4bab4',
+                    400: '#9a8e87',
+                    500: '#6f655e',
+                    600: '#574e49',
+                    700: '#443d39',
+                    800: '#322d2a',
+                    900: '#241f1d',
+                    950: '#1a1613',
+                },
+                // Light ground.
+                cream: '#fffdfb',
                 orange: {
                     50: '#fff8f1',
                     100: '#feebcb',
@@ -30,27 +50,29 @@ module.exports = {
                     800: '#964a0c',
                     900: '#7a3e0d',
                 },
-                gray: {
-                    50: '#f9fafb',
-                    100: '#f3f4f6',
-                    200: '#e5e7eb',
-                    300: '#d1d5db',
-                    400: '#9ca3af',
-                    500: '#6b7280',
-                    600: '#4b5563',
-                    700: '#374151',
-                    800: '#1f2937',
-                    900: '#111827',
-                },
             },
             fontFamily: {
-                sans: ['var(--font-inter)', 'sans-serif'],
-                display: ['var(--font-poppins)', 'sans-serif'],
+                sans: ['var(--font-inter)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                display: ['var(--font-poppins)', 'var(--font-inter)', 'sans-serif'],
+                mono: ['var(--font-mono)', 'ui-monospace', 'SFMono-Regular', 'monospace'],
             },
             borderWidth: {
                 '3': '3px',
             },
+            boxShadow: {
+                card: '0 1px 2px rgba(11, 15, 26, 0.04), 0 8px 24px -12px rgba(11, 15, 26, 0.12)',
+                lift: '0 2px 4px rgba(11, 15, 26, 0.05), 0 18px 40px -16px rgba(11, 15, 26, 0.22)',
+            },
+            keyframes: {
+                'fade-up': {
+                    '0%': { opacity: '0', transform: 'translateY(8px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' },
+                },
+            },
+            animation: {
+                'fade-up': 'fade-up 0.4s ease-out both',
+            },
         },
     },
     plugins: [],
-} 
+}

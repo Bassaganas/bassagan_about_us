@@ -1,126 +1,179 @@
-'use client';
-
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import type { SiteStats } from '@/lib/timeline';
 
-export default function Hero() {
+type HeroProps = {
+    stats: SiteStats;
+};
+
+export default function Hero({ stats }: HeroProps) {
+    const statItems = [
+        { value: `${stats.yearsExperience}+`, label: 'Years in software & quality' },
+        {
+            value: stats.averageRating ? `${stats.averageRating.toFixed(1)}/5` : 'n/a',
+            label: 'Average session rating',
+        },
+        { value: `${stats.ratedBy}`, label: 'Delegates who rated them' },
+    ];
+
     return (
-        <section id="about" className="pt-24 pb-10 bg-gradient-to-br from-white to-gray-50 relative overflow-hidden">
-            {/* Additional decorative blobs positioned strategically behind content */}
-            <div className="absolute top-20 -left-16 w-72 h-72 -z-10 opacity-5">
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="#FF6B4F" d="M45.7,-77.8C59.1,-71.3,70.3,-58.9,79.5,-44.4C88.7,-29.9,95.9,-14.9,95.5,-0.2C95.1,14.5,87.1,29,77.7,41.9C68.2,54.7,57.3,65.9,44.4,74.4C31.5,82.9,16.6,88.7,1.5,86.5C-14,84.3,-28.1,74,-42.1,65.5C-56.2,57,-70.2,50.4,-78.1,39.2C-86,28.1,-87.7,12.4,-87,-3.1C-86.3,-18.7,-83.3,-34.1,-73.8,-44.5C-64.2,-54.9,-48.3,-60.3,-34.2,-66.6C-20.2,-73,-10.1,-80.3,2.6,-85C15.4,-89.7,32.3,-84.3,45.7,-77.8Z" transform="translate(100 100)" />
-                </svg>
-            </div>
+        <section
+            id="about"
+            className="snap-section relative overflow-hidden bg-white pb-20 pt-28 sm:pb-24 sm:pt-32 lg:pt-36"
+        >
+            {/* Soft brand wash + engineering dot grid, faded out so the section
+                blends into the one below instead of ending on a hard line. */}
+            <div className="dot-bg fade-bottom pointer-events-none absolute inset-0 opacity-60" aria-hidden="true" />
+            <div
+                className="pointer-events-none absolute -right-32 -top-24 h-[28rem] w-[28rem] rounded-full bg-gradient-to-br from-coral-100 via-orange-50 to-transparent blur-3xl"
+                aria-hidden="true"
+            />
+            <div
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-ink-50"
+                aria-hidden="true"
+            />
 
-            <div className="absolute -bottom-28 right-0 w-96 h-96 -z-10 opacity-5 rotate-45">
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="#FF6B4F" d="M36.9,-62.2C47.3,-53.3,54.9,-41.6,60.9,-29.5C66.9,-17.3,71.3,-4.6,70.9,8.2C70.4,21,64.9,33.9,56.7,44.5C48.4,55.1,37.4,63.5,24.6,70.2C11.8,76.9,-2.8,82,-18.4,80.8C-34,79.6,-50.7,72.1,-60.7,59.9C-70.7,47.7,-74.1,30.8,-75.4,14.6C-76.6,-1.6,-75.9,-17,-67.7,-27.1C-59.6,-37.2,-44.1,-41.8,-31.7,-50.4C-19.3,-58.9,-9.7,-71.3,2.1,-74.6C13.9,-77.9,27.8,-72.1,36.9,-62.2Z" transform="translate(100 100)" />
-                </svg>
-            </div>
+            <div className="shell relative">
+                <div className="grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+                    <div className="max-w-2xl">
+                        {/* The role line, set exactly as the brand guide specifies. */}
+                        <p className="eyebrow">Functional Architect · AI in SDLC</p>
 
-            <div className="container mx-auto px-4 relative">
-                <div className="flex flex-col md:flex-row items-center gap-10 lg:gap-16">
-                    <div className="md:w-3/5 space-y-7 relative">
-                        <div>
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-                                Paula Bassagañas
-                            </h1>
-                            <div className="flex items-center">
-                                <div className="w-10 h-0.5 bg-coral-500 mr-3"></div>
-                                <h2 className="text-xl font-semibold text-coral-700">IT Architect</h2>
-                            </div>
+                        {/* The ñ carries the coral of the tilde mark. */}
+                        <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] tracking-tight text-ink-950 sm:text-5xl lg:text-6xl">
+                            Paula Bassaga<span className="text-coral-600">ñ</span>as
+                        </h1>
+
+                        <div className="mt-4 flex flex-wrap items-center gap-2">
+                            <span className="chip border-purple-200 bg-purple-50 text-purple-700">International speaker</span>
+                            {/* The company is a destination of its own, so this chip is a real link. */}
+                            <a
+                                href="https://testingfantasy.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="chip gap-1.5 border-coral-300 bg-coral-50 font-medium text-coral-700 transition-all duration-200 hover:border-coral-500 hover:bg-coral-100 hover:text-coral-800"
+                            >
+                                Founder, Testing Fantasy
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-2.5 w-2.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                                </svg>
+                            </a>
+                            <span className="chip border-ink-200 bg-ink-50 text-ink-600">University teacher</span>
                         </div>
 
-                        <p className="text-gray-700 text-lg leading-relaxed max-w-2xl">
-                            IT Architect specialized in test automation and the pharmaceutical field.
-                            Passionate about building robust, scalable testing solutions for critical systems.
-                            Experienced in implementing quality-driven approaches in regulated environments.
+                        <p className="mt-6 text-base leading-relaxed text-ink-600 sm:text-lg">
+                            I lead the Enterprise Development Platform and the adoption of AI across the
+                            software development lifecycle at Boehringer Ingelheim, for around 2,000
+                            developers. I also founded Testing Fantasy, where people learn testing through
+                            stories and quests instead of slides.
                         </p>
 
-                        {/* Decorative blob behind buttons */}
-                        <div className="absolute bottom-0 left-0 w-64 h-64 -z-10 opacity-5">
-                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                                <path fill="#FF6B4F" d="M47.7,-51.2C59.2,-37.9,64.7,-18.9,62.4,-2.3C60.1,14.4,50.1,28.9,38.5,41.7C26.9,54.5,13.4,65.7,-2.3,68C-18.1,70.3,-36.1,63.8,-49.5,51C-62.9,38.2,-71.6,19.1,-70.8,0.8C-70,-17.4,-59.6,-34.9,-46.1,-48.2C-32.6,-61.5,-16.3,-70.7,1.5,-72.1C19.2,-73.6,38.5,-67.3,47.7,-51.2Z" transform="translate(100 100)" />
-                            </svg>
+                        <p className="mt-4 text-base leading-relaxed text-ink-600 sm:text-lg">
+                            The question I care about is the one testing taught me years ago: not how fast
+                            we can build, but how we keep trusting what we build.
+                        </p>
+
+                        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                            <Link href="#events" className="btn btn-primary">
+                                See where I&rsquo;m speaking
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                                </svg>
+                            </Link>
+                            <Link href="#professional-journey" className="btn btn-secondary">
+                                Explore my experience
+                            </Link>
                         </div>
 
-                        <div className="flex flex-wrap gap-4 pt-2 relative z-10">
-                            <Link href="#contact">
-                                <div className="px-6 py-3 bg-coral-600 hover:bg-coral-700 text-white font-medium rounded shadow-sm transition duration-300 flex items-center">
-                                    <span>Contact Me</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                                    </svg>
-                                </div>
-                            </Link>
-                            <Link href="#professional-journey">
-                                <div className="px-6 py-3 bg-white hover:bg-orange-50 text-gray-800 font-medium rounded border border-gray-200 shadow-sm hover:border-coral-200 transition duration-300 flex items-center">
-                                    <span>My Experience</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 text-coral-500" viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z" />
-                                    </svg>
-                                </div>
-                            </Link>
-                        </div>
+                        {stats.companies.length > 0 && (
+                            <div className="mt-10">
+                                <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-400">
+                                    Experience with
+                                </p>
+                                <ul className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2">
+                                    {stats.companies.map((company) => (
+                                        <li key={company} className="text-sm font-semibold text-ink-500">
+                                            {company}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+
                     </div>
 
-                    <div className="md:w-2/5 flex justify-center">
+                    <div className="order-first flex justify-center lg:order-none lg:justify-end">
                         <div className="relative">
-                            {/* Background decorative gradient */}
-                            <div className="absolute -inset-4 bg-gradient-to-br from-coral-100 to-orange-50 rounded-full blur-md -z-10 opacity-80"></div>
-
-                            {/* Additional blob decoration behind image */}
-                            <div className="absolute -left-16 top-1/2 -translate-y-1/2 w-32 h-32 -z-10 opacity-5">
-                                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill="#FF6B4F" d="M40.8,-58.9C55.3,-51.5,71,-44.5,78.7,-32.1C86.4,-19.6,86.1,-1.5,79.9,13.4C73.7,28.2,61.5,39.9,48.8,50.1C36.1,60.3,23,69,6.8,75.2C-9.3,81.3,-28.5,85,-42.2,78C-55.9,71,-64.1,53.2,-71.8,35.3C-79.4,17.4,-86.5,-0.7,-82.7,-16.6C-78.9,-32.4,-64.3,-46.1,-49.2,-53.6C-34.1,-61.1,-18.5,-62.5,-3.3,-58.3C11.9,-54.1,26.3,-66.3,40.8,-58.9Z" transform="translate(100 100)" />
-                                </svg>
-                            </div>
-
-                            {/* Moved orange circle decoration to be behind the image */}
-                            <div className="absolute -right-10 -bottom-10 bg-orange-50 w-24 h-24 rounded-full opacity-40 -z-10"></div>
-
-                            {/* Image container */}
-                            <div className="relative h-64 w-64 md:h-80 md:w-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                            <div
+                                className="absolute -inset-3 rounded-full bg-gradient-to-br from-coral-200/60 via-orange-100/60 to-purple-100/50 blur-xl"
+                                aria-hidden="true"
+                            />
+                            <div className="relative h-52 w-52 overflow-hidden rounded-full border-4 border-white shadow-lift sm:h-64 sm:w-64 lg:h-80 lg:w-80">
                                 <Image
-                                    src="/images/Paula_Bassaganas_Odena.png"
+                                    src="/images/Paula_Bassaganas_Odena.webp"
                                     alt="Paula Bassagañas"
-                                    width={320}
-                                    height={320}
+                                    fill
+                                    sizes="(max-width: 640px) 208px, (max-width: 1024px) 256px, 320px"
                                     priority
-                                    className="rounded-full object-cover"
+                                    className="object-cover"
                                 />
                             </div>
 
-                            {/* Status tag */}
-                            <div className="absolute -bottom-3 right-0 bg-white rounded-full py-2 px-4 shadow-md border border-gray-100">
-                                <div className="flex items-center gap-2">
-                                    <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-                                    <span className="text-sm font-medium text-gray-800">Open to connect</span>
-                                </div>
+                            <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-ink-100 bg-white px-4 py-2 shadow-card lg:left-auto lg:right-0 lg:translate-x-0">
+                                <span className="flex items-center gap-2 text-xs font-medium text-ink-700">
+                                    <span className="relative flex h-2 w-2">
+                                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                                        <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+                                    </span>
+                                    Open to connect
+                                </span>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            {/* Decorative Tech Elements */}
-            <div className="absolute bottom-10 left-1/4 opacity-10 w-32 h-32">
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="#FF6B4F" d="M47.7,-51.2C59.2,-37.9,64.7,-18.9,62.4,-2.3C60.1,14.4,50.1,28.9,38.5,41.7C26.9,54.5,13.4,65.7,-2.3,68C-18.1,70.3,-36.1,63.8,-49.5,51C-62.9,38.2,-71.6,19.1,-70.8,0.8C-70,-17.4,-59.6,-34.9,-46.1,-48.2C-32.6,-61.5,-16.3,-70.7,1.5,-72.1C19.2,-73.6,38.5,-67.3,47.7,-51.2Z" transform="translate(100 100)" />
-                </svg>
-            </div>
+                {/* Credentials panel: the numbers, then the speaking tour.
+                    Everything here is derived from the data in src/data. */}
+                <div className="relative mt-14 overflow-hidden rounded-2xl border border-ink-100 bg-white shadow-card sm:mt-16">
+                    <dl className="grid grid-cols-1 gap-px bg-ink-100 sm:grid-cols-3">
+                        {statItems.map((stat) => (
+                            <div key={stat.label} className="bg-white px-5 py-5 sm:px-6 sm:py-6">
+                                <dt className="sr-only">{stat.label}</dt>
+                                <dd>
+                                    <span className="block font-mono text-2xl font-semibold tracking-tight text-coral-600 sm:text-3xl">
+                                        {stat.value}
+                                    </span>
+                                    <span className="mt-1.5 block text-xs leading-snug text-ink-500 sm:text-sm">
+                                        {stat.label}
+                                    </span>
+                                </dd>
+                            </div>
+                        ))}
+                    </dl>
 
-            <div className="absolute top-1/3 left-10 bg-coral-50 w-16 h-16 rounded-full opacity-30"></div>
-
-            {/* Tech Pattern Overlay */}
-            <div className="absolute inset-0 bg-repeat opacity-5 pointer-events-none"
-                style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ff6b4f' fill-opacity='1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1.5'/%3E%3Ccircle cx='17' cy='17' r='1.5'/%3E%3C/g%3E%3C/svg%3E")`,
-                    backgroundSize: '20px 20px'
-                }}>
+                    {/* Oldest first, so the row ends on what is booked next. */}
+                    {stats.cities.length > 0 && (
+                        <div className="flex flex-col gap-3 border-t border-ink-100 bg-ink-50/60 px-5 py-4 sm:flex-row sm:items-center sm:gap-5 sm:px-6">
+                            <p className="shrink-0 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-400">
+                                On stage in
+                            </p>
+                            <ul className="flex flex-wrap gap-2">
+                                {stats.cities.map(({ city, country }) => (
+                                    <li
+                                        key={city}
+                                        className="chip border-purple-200 bg-white text-purple-800"
+                                        title={country}
+                                    >
+                                        {city}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
+                </div>
             </div>
         </section>
     );
-} 
+}
