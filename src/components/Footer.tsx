@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Lockup } from '@/components/Brand';
+import { Lockup, TildeWatermark } from '@/components/Brand';
 import { FaLinkedinIn, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const QUICK_LINKS = [
@@ -16,8 +16,9 @@ export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="border-t border-ink-800 bg-ink-950">
-            <div className="shell py-12 sm:py-16">
+        <footer className="relative overflow-hidden border-t border-ink-800 bg-ink-950">
+            <TildeWatermark className="-bottom-12 right-[3%] h-56 w-56 rotate-[-6deg] text-cream/[0.05] sm:h-72 sm:w-72" />
+            <div className="shell relative z-10 py-12 sm:py-16">
                 <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr]">
                     <div>
                         <Lockup tone="dark" markClassName="h-9 w-9" wordmarkClassName="text-lg" />

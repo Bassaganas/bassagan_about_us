@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
+import { TildeWatermark } from '@/components/Brand';
 import { FaLinkedinIn, FaGithub, FaEnvelope, FaMapMarkerAlt, FaMagic, FaExternalLinkAlt } from 'react-icons/fa';
 
 export default function ContactSection() {
@@ -50,8 +51,9 @@ export default function ContactSection() {
         'w-full rounded-lg border border-ink-200 bg-white px-4 py-3 text-sm text-ink-900 placeholder:text-ink-400 transition-colors focus:border-coral-500 focus:outline-none focus:ring-2 focus:ring-coral-500/20';
 
     return (
-        <section id="contact" className="section snap-section bg-white">
-            <div className="shell">
+        <section id="contact" className="section snap-section relative overflow-hidden bg-white">
+            <TildeWatermark className="bottom-[8%] left-[3%] hidden h-56 w-56 rotate-[9deg] text-ink-950/[0.05] lg:block" />
+            <div className="shell relative z-10">
                 <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
                     <div>
                         <p className="eyebrow">Contact</p>

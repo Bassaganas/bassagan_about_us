@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { TildeWatermark } from '@/components/Brand';
 import { TestimonialItem } from '@/data/additional-data';
 import type { SiteStats } from '@/lib/timeline';
 
@@ -53,6 +54,7 @@ export default function Testimonials({ testimonials, stats }: TestimonialsProps)
                         className="pointer-events-none absolute -bottom-24 -right-32 h-80 w-80 rounded-full bg-purple-500/10 blur-3xl"
                         aria-hidden="true"
                     />
+                    <TildeWatermark className="-right-8 top-4 hidden h-48 w-48 rotate-[-12deg] text-cream/[0.06] sm:block sm:h-64 sm:w-64" />
 
                     <div className="relative">
                 <div className="max-w-2xl">

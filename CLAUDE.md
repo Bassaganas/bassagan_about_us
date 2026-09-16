@@ -101,6 +101,7 @@ The logo kit and its written rules live in `brand/` at the repo root, deliberate
 - **Never put the coral icon on a coral ground** — use the cream (reverse) mark, as the Testing Fantasy panel does.
 - The lockup is rebuilt in JSX in `Brand.tsx` rather than loaded from the SVG files, because those set live Poppins text that falls back to Helvetica inside an `<img>`.
 - Favicons are the only brand files under `public/`, at the root, wired up in `layout.tsx`.
+- **The tilde watermark** (`TildeWatermark` in `Brand.tsx`) is placed by hand, never tiled: at most one per section, always in dead space beside or below the content, never behind text, and hidden at widths where that space disappears. Vary size, rotation and mirroring so it reads as composed rather than repeated. Content beside one needs `relative z-10`, and the section needs `relative overflow-hidden`.
 
 ### Images must be optimised by hand
 

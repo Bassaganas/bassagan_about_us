@@ -29,7 +29,7 @@ export default function TestingFantasy() {
             <div className="shell">
                 <div className="relative overflow-hidden rounded-3xl bg-coral-600 px-5 py-12 shadow-lift sm:px-10 sm:py-14 lg:px-14 lg:py-16">
                     <TildeBare
-                        className="pointer-events-none absolute -right-10 -top-12 h-56 w-56 text-cream/10 sm:h-72 sm:w-72"
+                        className="pointer-events-none absolute -right-10 -top-12 h-56 w-56 rotate-[-10deg] text-cream/10 sm:h-72 sm:w-72"
                     />
                     <div
                         className="pointer-events-none absolute -bottom-24 -left-20 h-72 w-72 rounded-full bg-orange-400/20 blur-3xl"

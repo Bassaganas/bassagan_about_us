@@ -1,4 +1,5 @@
 import React from 'react';
+import { TildeWatermark } from '@/components/Brand';
 
 interface Event {
     date: string;
@@ -18,9 +19,11 @@ export default function UpcomingEvents({ events }: UpcomingEventsProps) {
         // fades back to white for the one below, so no seam is ever visible.
         <section
             id="events"
-            className="section snap-section relative bg-gradient-to-b from-ink-50 via-ink-50 to-white"
+            className="section snap-section relative overflow-hidden bg-gradient-to-b from-ink-50 via-ink-50 to-white"
         >
-            <div className="shell relative">
+            <TildeWatermark className="right-[5%] top-[14%] hidden h-64 w-64 rotate-[-8deg] text-ink-950/[0.05] lg:block xl:h-80 xl:w-80" />
+
+            <div className="shell relative z-10">
                 <div className="max-w-2xl">
                     <p className="eyebrow">Upcoming</p>
                     <h2 className="section-title">Where to find me next</h2>

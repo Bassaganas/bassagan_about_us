@@ -46,6 +46,22 @@ export function TildeBare({ className = 'h-4 w-4' }: { className?: string }) {
     );
 }
 
+/**
+ * The tilde used as a background watermark.
+ *
+ * Placement is deliberate rather than tiled: one per section at most, always in
+ * dead space beside or below the content, never behind text. Each appearance
+ * varies in size, rotation and mirroring so the mark feels hand-placed. The
+ * caller passes position, size, rotation and colour; `currentColor` drives the
+ * stroke, so tint it with a text colour at very low opacity.
+ *
+ * Content next to one of these needs `relative z-10`, since the watermark is
+ * positioned and would otherwise paint over static content.
+ */
+export function TildeWatermark({ className = '' }: { className?: string }) {
+    return <TildeBare className={`pointer-events-none absolute z-0 select-none ${className}`} />;
+}
+
 /** "Paula Bassagañas" with the ñ in coral. */
 export function Wordmark({
     tone = 'light',
