@@ -216,13 +216,7 @@ export const photosData: PhotoItem[] = [
 export const testimonialsData: TestimonialItem[] = [
     // HUSTEF 2026 tutorial feedback form (each attendee chose how to be credited)
     {
-        quote: "The presenting style of Paula, she was extremely helpful, and the course was well detailed and has a practical outcome.",
-        author: "Roland Mayer",
-        role: "Senior Software Developer",
-        company: "evosoft / Siemens"
-    },
-    {
-        quote: "Utilized very well the lore and the code parts to teach a modern architecture. Even though I am a beginner in coding I could understand and follow through.",
+        quote: "I liked the comparison to Lord of the Rings as it was easier to retain and understand the information.",
         author: "Conference delegate",
         role: "Tutorial feedback",
         company: "HUSTEF 2026"

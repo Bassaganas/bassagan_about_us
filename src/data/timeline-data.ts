@@ -64,13 +64,13 @@ export const timelineData: TimelineItem[] = [
                 averageRating: 4.91,
                 respondents: 11
             },
-            quote: "I liked the comparison to Lord of the Rings as it was easier to retain and understand the information."
+            quote: "Utilized very well the lore and the code parts to teach a modern architecture. Even though I am a beginner in coding I could understand and follow through."
         },
         testimonial: {
-            quote: "The idea to solve a \"real\" testing problem. Two days would be better for this great content, to understand everything even better.",
-            author: "Tibor Kompasz",
-            role: "Test Engineer",
-            company: "evosoft"
+            quote: "The presenting style of Paula, she was extremely helpful, and the course was well detailed and has a practical outcome.",
+            author: "Roland Mayer",
+            role: "Senior Software Developer",
+            company: "evosoft / Siemens"
         }
     },
     {
