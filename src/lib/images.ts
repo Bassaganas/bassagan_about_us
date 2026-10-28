@@ -12,6 +12,7 @@ const LOGO_IMAGES = [
     'cobas_infinity',
     'cobas_liat',
     'cobas_711_511',
+    'tapost_logo',
 ];
 
 export function isLogo(path: string): boolean {

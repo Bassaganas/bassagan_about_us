@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 interface Event {
     date: string;
@@ -6,6 +7,7 @@ interface Event {
     location: string;
     description: string;
     link?: string;
+    logo?: string;
 }
 
 interface UpcomingEventsProps {
@@ -52,9 +54,20 @@ export default function UpcomingEvents({ events }: UpcomingEventsProps) {
                             </div>
 
                             <div className="flex flex-1 flex-col px-5 pb-5 sm:px-6 sm:pb-6">
-                                <h3 className="font-display text-xl font-bold text-ink-950 transition-colors duration-200 group-hover:text-coral-700">
-                                    {event.title}
-                                </h3>
+                                <div className="flex items-center gap-3">
+                                    {event.logo && (
+                                        <Image
+                                            src={event.logo}
+                                            alt={`${event.title} logo`}
+                                            width={40}
+                                            height={40}
+                                            className="h-10 w-10 flex-shrink-0 rounded-md border border-ink-100 bg-white object-contain p-0.5"
+                                        />
+                                    )}
+                                    <h3 className="min-w-0 font-display text-xl font-bold text-ink-950 transition-colors duration-200 group-hover:text-coral-700">
+                                        {event.title}
+                                    </h3>
+                                </div>
 
                                 <p className="mt-2 flex items-start gap-2 text-sm font-medium text-ink-500">
                                     <svg className="mt-0.5 h-4 w-4 flex-shrink-0 text-coral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

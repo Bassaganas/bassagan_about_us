@@ -41,6 +41,39 @@ export type TimelineItem = {
 export const timelineData: TimelineItem[] = [
     // Past speaking engagements, 2026
     {
+        date: "October 2026",
+        title: "HUSTEF 2026",
+        city: "Budapest",
+        country: "Hungary",
+        talk: "One Agent to Watch Them All: Building an AI Test Monitor",
+        description: "Full-day, hands-on tutorial in Budapest framed in a Lord of the Rings narrative: attendees built an agent with Model Context Protocols that watches Jenkins pipelines, reasons about build outcomes and reports back on its own.",
+        type: 'speaking',
+        tags: ["Conference", "Tutorial", "AI Agents", "MCP", "CI/CD"],
+        photos: [
+            "/images/hustef_1.webp",
+            "/images/hustef_2.webp"
+        ],
+        link: {
+            url: "https://hustef.com/paula-bassaganas_2026/",
+            label: "View Conference Details"
+        },
+        feedback: {
+            award: {
+                category: "Tutorial",
+                title: "One Agent To Rule Them All: MCPs",
+                averageRating: 4.91,
+                respondents: 11
+            },
+            quote: "I liked the comparison to Lord of the Rings as it was easier to retain and understand the information."
+        },
+        testimonial: {
+            quote: "The idea to solve a \"real\" testing problem. Two days would be better for this great content, to understand everything even better.",
+            author: "Tibor Kompasz",
+            role: "Test Engineer",
+            company: "evosoft"
+        }
+    },
+    {
         date: "June 2026",
         title: "EuroSTAR 2026",
         city: "Oslo",
