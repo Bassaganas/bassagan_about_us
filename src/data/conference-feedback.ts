@@ -387,5 +387,39 @@ A bit chaotic since what was originally a 7-8-hour session was condensed to 4 ho
 Best Session ever
 
 Recurring theme across the comments: the material was built for a full day and condensed into a short slot.`
+    },
+    {
+        conference: "HUSTEF",
+        year: 2026,
+        date: "October 2026",
+        award: {
+            category: "Tutorial",
+            title: "One Agent To Rule Them All: MCPs",
+            averageRating: 4.91,
+            respondents: 11
+        },
+        outstandingQuotes: [
+            "Utilized very well the lore and the code parts to teach a modern architecture. Even though I am a beginner in coding I could understand and follow through.",
+            "I liked the comparison to Lord of the Rings as it was easier to retain and understand the information.",
+            "The story (LOTR) helped a lot to understand the working the agents, orchestrator, MCP servers.",
+            "The presenting style of Paula, she were extremely helpful, and the course were well detailed, and has practical outcome (Roland Mayer, Senior Software Developer, evosoft / Siemens)",
+            "The idea to solve a \"real\" testing problem. Two days would be better for this great content understand better everything. (Tibor Kompasz, TE, evosoft)"
+        ],
+        rawFeedback: `HUSTEF 2026 tutorial feedback form, 6 October 2026.
+Columns: rating (out of 5) | what did you like | what could be improved | may we quote you
+
+5 | Lotr and examples | | Yes, anonymously
+4 | The theory behind it | For me it could be a half day only with mostly theory | Yes, anonymously
+5 | | | Yes, anonymously
+5 | | | Yes, anonymously
+5 | | | No
+5 | I liked the comparison to Lord of the Rings as it was easier to retain and understand the information. | - | Yes, anonymously
+5 | The presenting style of Paula, she were extremely helpful, and the course were well detailed, and has practical outcome | The lenght, it could be a bit tighter on time | Yes, with my name: Roland Mayer, Senior Software Developer, evosoft / Siemens
+5 | Utilized very well the lore and the code parts to teach a modern architecture. Even though I am a beginner in coding I could understand and follow through. | | Yes, anonymously
+5 | The approach of presenting and the interaction with the speaker | Everything was great | Yes, anonymously
+5 | The story (LOTR) helped a lot to understand the working the agents, orchestrator, MCP servers. | | Yes, anonymously
+5 | The idea to solve a "real" testing problem. | Two days would be better for this great content understand better everything. | Yes, with my name: Tibor Kompasz, TE, evosoft
+
+Average 4.91 out of 5 from 11 respondents.`
     }
 ];

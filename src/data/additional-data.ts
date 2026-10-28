@@ -7,6 +7,8 @@ export type EventItem = {
     country?: string;
     description: string;
     link?: string;
+    /** Organiser's logo, shown beside the title. Add the file name to src/lib/images.ts too. */
+    logo?: string;
 };
 
 export type PhotoItem = {
@@ -33,15 +35,6 @@ export type TestimonialItem = {
 
 export const upcomingEventsData: EventItem[] = [
     {
-        date: "October 6-8, 2026",
-        title: "HUSTEF 2026",
-        location: "Budapest, Hungary",
-        city: "Budapest",
-        country: "Hungary",
-        description: "One Agent to Watch Them All: Building an AI Test Monitor. A full-day, hands-on tutorial framed in a Lord of the Rings narrative.",
-        link: "https://hustef.com/paula-bassaganas_2026/"
-    },
-    {
         date: "October 27-28, 2026",
         title: "VLC Testing 2026",
         location: "Valencia, Spain",
@@ -58,6 +51,16 @@ export const upcomingEventsData: EventItem[] = [
         country: "Belgium",
         description: "One Agent to Watch Them All. Tutorial B on the morning of 4 November.",
         link: "https://automation.eurostarsoftwaretesting.com/conference/2026/programme/"
+    },
+    {
+        date: "April 8, 2027",
+        title: "TAPOST NEXT 2027",
+        location: "Riga, Latvia",
+        city: "Riga",
+        country: "Latvia",
+        description: "One Agent to Watch Them All: Building an AI Test Monitor. A full-day, hands-on workshop on building an MCP-powered agent that watches CI/CD pipelines and reports root causes on its own.",
+        link: "https://www.tapost.org/paula-bassaganas-odena/",
+        logo: "/images/tapost_logo.webp"
     }
 ];
 
@@ -211,6 +214,19 @@ export const photosData: PhotoItem[] = [
 ];
 
 export const testimonialsData: TestimonialItem[] = [
+    // HUSTEF 2026 tutorial feedback form (each attendee chose how to be credited)
+    {
+        quote: "I liked the comparison to Lord of the Rings as it was easier to retain and understand the information.",
+        author: "Conference delegate",
+        role: "Tutorial feedback",
+        company: "HUSTEF 2026"
+    },
+    {
+        quote: "The story (LOTR) helped a lot to understand the workings of the agents, orchestrator and MCP servers.",
+        author: "Conference delegate",
+        role: "Tutorial feedback",
+        company: "HUSTEF 2026"
+    },
     // Public posts from conference speakers and attendees
     {
         quote: "A huge thank you to all the amazing speakers for sharing their expertise. I have to give a special shout-out to Paula Bassagañas Òdena. Your tutorial was outstanding and a personal highlight of the conference!",

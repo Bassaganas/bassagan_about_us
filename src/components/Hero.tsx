@@ -20,7 +20,7 @@ export default function Hero({ stats }: HeroProps) {
     return (
         <section
             id="about"
-            className="snap-section relative overflow-hidden bg-white pb-20 pt-28 sm:pb-24 sm:pt-32 lg:pt-36"
+            className="snap-section relative overflow-hidden bg-white pb-8 pt-28 sm:pb-10 sm:pt-32 lg:pt-36"
         >
             {/* Soft brand wash + engineering dot grid, faded out so the section
                 blends into the one below instead of ending on a hard line. */}
